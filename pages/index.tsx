@@ -1,7 +1,51 @@
+import { useEffect, useState } from "react";
 import Head from "next/head";
+import { useRouter } from "next/router";
+
 import styles from "../styles/Home.module.css";
 
+import useAlert from "../src/components/hooks/useAlert";
+
 export default function Home() {
+  const [launch, setLaunch] = useState(false);
+  const router = useRouter();
+  const alert = useAlert();
+
+  const startGame = async () => {
+    await alert.show({
+      title: "お知らせ",
+      icon: "warning",
+      html: (
+        <div>
+          今日はエイプリルフールです！サイバーセキュリティ月間で学んだことを一緒に復習しましょう！
+          <br />
+          なお、このアプリはとあるラブライバーが自分でサイバーセキュリティを復習するために作成したものであり、ラブライブ公式・内閣サイバーセキュリティセンターとは一切関係がありません。
+          <br />
+          <a
+            target="_blank"
+            href="https://twitter.com/search?q=%23%E3%82%B5%E3%82%A4%E3%83%90%E3%83%BC%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E3%81%AF%E5%85%A8%E5%93%A1%E5%8F%82%E5%8A%A0"
+          >
+            #サイバーセキュリティは全員参加
+          </a>
+          ！
+        </div>
+      ),
+      confirmButtonText: "復習開始！",
+    });
+
+    await router.push(`/chapter-1`);
+  };
+
+  useEffect(() => {
+    if (launch) {
+      startGame();
+    }
+  }, [launch]);
+
+  useEffect(() => {
+    setLaunch(!!router.query.launch);
+  }, [router.query.launch]);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -10,56 +54,9 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{" "}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+        <h1 className={styles.title}>復習！サイバーセキュリティ</h1>
+        <p className={styles.description}>REVIEW LOVELIVE CYBER SECURITY</p>
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
     </div>
   );
 }

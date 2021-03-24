@@ -1,0 +1,22 @@
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #dddddd;
+  width: 400px;
+}
+
+.timelineWrapper {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.lastTweet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}

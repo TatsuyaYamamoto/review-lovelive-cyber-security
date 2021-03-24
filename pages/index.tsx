@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
-import styles from "../styles/Home.module.css";
+import styles from "../src/styles/Home.module.css";
 
 import useAlert from "../src/components/hooks/useAlert";
 
@@ -12,7 +12,7 @@ export default function Home() {
   const alert = useAlert();
 
   const startGame = async () => {
-    await alert.show({
+    const { isConfirmed } = await alert.show({
       title: "お知らせ",
       icon: "warning",
       html: (
@@ -31,9 +31,14 @@ export default function Home() {
         </div>
       ),
       confirmButtonText: "復習開始！",
+      showCancelButton: true,
+      cancelButtonText: "始めません...",
+      allowOutsideClick: false,
     });
 
-    await router.push(`/chapter-1`);
+    if (isConfirmed) {
+      await router.push(`/chapter-1`);
+    }
   };
 
   useEffect(() => {

@@ -1,0 +1,54 @@
+.textbox {
+  height: 150px;
+}
+
+.speakerName {
+  display: inline-block;
+  font-size: 15px;
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  z-index: 1;
+  text-align: center;
+  margin: 0 auto;
+  padding: 5px 100px 5px 15px;
+
+  &::before {
+    transform: skewX(-25deg);
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background: linear-gradient(
+      90deg,
+      #fff,
+      #fff 70%,
+      #ececf2 0,
+      #ececf2 72%,
+      #fff 0,
+      #fff 74%,
+      #ececf2 0,
+      #ececf2
+    );
+    border: 2px solid #cdcddc;
+  }
+}
+
+.name {
+  margin-left: 20px;
+}
+
+.speakerLines {
+  width: 100%;
+  height: 100%;
+  padding: 50px 50px 0 50px;
+
+  background: linear-gradient(
+    hsla(0, 0%, 100%, 0),
+    hsla(0, 0%, 100%, 0.8) 8%,
+    hsla(0, 0%, 100%, 0.8)
+  );
+}

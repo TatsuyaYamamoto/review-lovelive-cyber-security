@@ -1,12 +1,14 @@
 .root {
   width: 100vw;
-  min-height: 100vh;
+  height: 100%;
   background-color: #dddddd;
+  position: relative;
 }
 
 .appLayout {
   max-width: 600px;
   margin: 0 auto;
-  min-height: 100vh;
+  height: 100%;
   background-color: #ffffff;
+  position: relative;
 }

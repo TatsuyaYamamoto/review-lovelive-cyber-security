@@ -39,8 +39,13 @@ export const Speakers = {
 
 export type Speaker = keyof typeof Speakers;
 
-export type ScriptItem = {
-  type: "text";
-  speaker: Speaker;
-  text: string;
-};
+export type ScriptItem =
+  | {
+      type: "lines";
+      speaker: Speaker;
+      text: string;
+    }
+  | {
+      type: "monologue";
+      text: string;
+    };

@@ -20,11 +20,7 @@ const Chapter1: NextPage = () => {
       <div className={styles.root}>
         <div>Chapter1</div>
 
-        <Textbox
-          className={styles.textbox}
-          speaker={currentScript.speaker}
-          text={currentScript.text}
-        />
+        <Textbox className={styles.textbox} script={currentScript} />
       </div>
     </AppLayout>
   );

@@ -2,18 +2,22 @@ import { ScriptItem } from "./Script";
 
 const chapter1: ScriptItem[] = [
   {
-    type: "text",
+    type: "monologue",
+    text: "がさごそ",
+  },
+  {
+    type: "lines",
     speaker: "hanamaru",
     text:
       "長いセリフずらああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ",
   },
   {
-    type: "text",
+    type: "lines",
     speaker: "hanamaru",
     text: "短いずら",
   },
   {
-    type: "text",
+    type: "lines",
     speaker: "ruby",
     text: "ぴぎ",
   },

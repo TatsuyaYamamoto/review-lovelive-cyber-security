@@ -1,7 +1,25 @@
+import { useRouter } from "next/router";
+
 import AppLayout from "@/components/AppLayout";
+import ChapterFrontispiece from "@/components/ChapterFrontispiece";
+import { chapters } from "@/resources/chapters";
+import { useEffect } from "react";
 
 const Chapter1Intro = () => {
-  return <AppLayout hideMenu={true}>Chapter1</AppLayout>;
+  const router = useRouter();
+  const { chapterNumber, title } = chapters["1"];
+
+  useEffect(() => {
+    setTimeout(() => {
+      router.push(`/chapter-1/section-1`);
+    }, 2000);
+  }, []);
+
+  return (
+    <AppLayout hideMenu={true}>
+      <ChapterFrontispiece chapterNumber={chapterNumber} chapterTitle={title} />
+    </AppLayout>
+  );
 };
 
 export default Chapter1Intro;

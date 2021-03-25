@@ -12,6 +12,7 @@ import StepButton from "@material-ui/core/StepButton";
 import StepLabel from "@material-ui/core/StepLabel";
 import StepContent from "@material-ui/core/StepContent";
 import Typography from "@material-ui/core/Typography";
+import { chapters } from "@/resources/chapters";
 
 export interface ChapterStepperProps {
   open: boolean;
@@ -22,23 +23,7 @@ const ChapterStepper: FC<ChapterStepperProps> = (props) => {
 
   const router = useRouter();
   const [selectedStepIndex, setSelectStepIndex] = useState(0);
-  const chapters = [
-    {
-      number: 1,
-      name: "ツールのセキュリティホールを作らない",
-      description: "hogehogehogehoge",
-    },
-    {
-      number: 2,
-      name: "人間のセキュリティホールを作らない",
-      description: "hogehogehogehoge",
-    },
-    {
-      number: 3,
-      name: "被害の種を作らない、被害を広げない",
-      description: "hogehogehogehoge",
-    },
-  ];
+  const chapterList = [chapters["1"], chapters["2"], chapters["3"]];
 
   const onStepClicked = (stepIndex) => () => {
     setSelectStepIndex(stepIndex);
@@ -62,17 +47,19 @@ const ChapterStepper: FC<ChapterStepperProps> = (props) => {
           orientation="vertical"
           nonLinear={true}
         >
-          {chapters.map(({ number, name, description }, index) => (
-            <Step key={number}>
+          {chapterList.map(({ chapterNumber, title, description }, index) => (
+            <Step key={chapterNumber}>
               <StepButton onClick={onStepClicked(index)}>
-                <StepLabel>{name}</StepLabel>
+                <StepLabel>{title}</StepLabel>
               </StepButton>
 
               <StepContent>
                 <Typography>{description}</Typography>
                 <div>
                   <div>
-                    <Button onClick={onStartChapter(number)}>始める！</Button>
+                    <Button onClick={onStartChapter(chapterNumber)}>
+                      始める！
+                    </Button>
                   </div>
                 </div>
               </StepContent>

@@ -19,3 +19,26 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.click-effect {
+  animation: click-effect 300ms linear 0s;
+  border-radius: 50%;
+  border: 4px solid #6eb2e0;
+  position: absolute;
+  z-index: 1000000;
+}
+
+@keyframes click-effect {
+  0% {
+    height: 0;
+    opacity: 1;
+    transform: translate(0, 0);
+    width: 0;
+  }
+  100% {
+    height: 100px; /*円の高さ幅の最大値*/
+    width: 100px; /*基本高さと合わせる*/
+    opacity: 0;
+    transform: translate(-50px, -50px); /*高さの半分の値にする*/
+  }
+}

@@ -1,7 +1,15 @@
-import "../src/styles/globals.css";
+import { useEffect } from "react";
 import Head from "next/head";
 
+import "../src/styles/globals.css";
+
+import { renderClickEffect } from "@/helpers/clickEffect";
+
 function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    document.addEventListener("click", renderClickEffect);
+  }, []);
+
   return (
     <>
       <Head>

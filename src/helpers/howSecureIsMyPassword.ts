@@ -111,7 +111,8 @@ export interface HsimpResult {
     | "warning" //might be ok, but things to be aware of
     | "easter-egg" //they've found something silly
     | "notice" //nothing major
-    | "achievement"; // something to be proud of
+    | "achievement"
+    | null; // something to be proud of
   estimatedTime: string;
 }
 

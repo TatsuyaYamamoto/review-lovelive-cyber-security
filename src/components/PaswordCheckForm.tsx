@@ -40,24 +40,26 @@ const PasswordCheckForm: FC<PasswordCheckFormProps> = (props) => {
         <div>
           <TextField
             fullWidth={true}
+            variant="outlined"
             placeholder={"パスワードを入力..."}
             inputProps={{ name: "password" }}
             inputRef={register({ required: true })}
             onClick={stopPropagation}
           />
         </div>
-        <div className={styles.result}>
-          <div className={styles.resultLabel}>パスワードが破られるまで</div>
-          <div className={styles.resultValue}>{estimatedCrackTime}</div>
-        </div>
         <Button
           fullWidth={true}
+          variant="outlined"
           onClick={stopPropagation}
           type="submit"
           disabled={!formState.isValid}
         >
           計測開始
         </Button>
+        <div className={styles.result}>
+          <div className={styles.resultLabel}>パスワードが破られるまで</div>
+          <div className={styles.resultValue}>{estimatedCrackTime}</div>
+        </div>
       </form>
     </Card>
   );

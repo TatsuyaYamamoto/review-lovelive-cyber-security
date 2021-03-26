@@ -1,11 +1,17 @@
-import { FC } from "react";
+import { Fragment, FC, useState, useEffect } from "react";
 
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-import { ListSubheader } from "@material-ui/core";
+import ListSubheader from "@material-ui/core/ListSubheader";
+import Collapse from "@material-ui/core/Collapse";
+
+import ExpandLess from "@material-ui/icons/ExpandLess";
+import ExpandMore from "@material-ui/icons/ExpandMore";
+
+import { appLinks, externalLinks, refsList } from "@/resources/links";
 
 // https://material-ui.com/ja/components/lists/
 function ListItemLink(props) {
@@ -21,21 +27,23 @@ export interface MenuProps {
 const Menu: FC<MenuProps> = (props) => {
   const { open, onClose, onOpen } = props;
 
-  const externalLinks = [
-    {
-      label: "NISC | サイバーセキュリティ月間",
-      url: "https://www.nisc.go.jp/security-site/month/lovelive.html",
-    },
-    {
-      label: "NISC | 「インターネットの安全・安心ハンドブック」について",
-      url: "https://www.nisc.go.jp/security-site/handbook/index.html",
-    },
-  ];
+  const [expandedRefsLinkListIndex, setExpandedRefsLinkListIndex] = useState<
+    number | null
+  >(null);
 
-  const appLinks = [
-    { label: "このアプリについて", url: "" },
-    { label: "ソースコード", url: "" },
-  ];
+  const handleRefsListExpand = (index: number) => () => {
+    if (expandedRefsLinkListIndex === index) {
+      setExpandedRefsLinkListIndex(null);
+    } else {
+      setExpandedRefsLinkListIndex(index);
+    }
+  };
+
+  useEffect(() => {
+    if (!open) {
+      setExpandedRefsLinkListIndex(null);
+    }
+  }, [open]);
 
   return (
     <SwipeableDrawer
@@ -44,9 +52,37 @@ const Menu: FC<MenuProps> = (props) => {
       onClose={onClose}
       onOpen={onOpen}
     >
+      <List subheader={<ListSubheader>引用・参照元</ListSubheader>}>
+        {refsList.map((refs, i) => {
+          const open = expandedRefsLinkListIndex === i;
+          return (
+            <Fragment key={i}>
+              <ListItem button onClick={handleRefsListExpand(i)}>
+                <ListItemText primary={refs.title} />
+                {open ? <ExpandLess /> : <ExpandMore />}
+              </ListItem>
+              <Collapse in={open} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+                  {refs.items.map((item, j) => (
+                    <ListItemLink
+                      key={j}
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      <ListItemText primary={item.label} />
+                    </ListItemLink>
+                  ))}
+                </List>
+              </Collapse>
+            </Fragment>
+          );
+        })}
+      </List>
+      <Divider />
       <List subheader={<ListSubheader>外部リンク</ListSubheader>}>
         {externalLinks.map(({ label, url }, index) => (
-          <ListItemLink key={index} href={url} target="_blank">
+          <ListItemLink key={index} href={url} target="_blank" rel="noopener">
             <ListItemText primary={label} />
           </ListItemLink>
         ))}
@@ -54,7 +90,7 @@ const Menu: FC<MenuProps> = (props) => {
       <Divider />
       <List subheader={<ListSubheader>アプリについて</ListSubheader>}>
         {appLinks.map(({ label, url }, index) => (
-          <ListItemLink key={index} href={url} target="_blank">
+          <ListItemLink key={index} href={url} target="_blank" rel="noopener">
             <ListItemText primary={label} />
           </ListItemLink>
         ))}

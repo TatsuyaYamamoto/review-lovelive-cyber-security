@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
 import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
 
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
@@ -12,7 +13,9 @@ import StepButton from "@material-ui/core/StepButton";
 import StepLabel from "@material-ui/core/StepLabel";
 import StepContent from "@material-ui/core/StepContent";
 import Typography from "@material-ui/core/Typography";
+
 import { chapters } from "@/resources/chapters";
+import displaySlice from "@/redux/slices/display";
 
 export interface ChapterStepperProps {
   open: boolean;
@@ -22,15 +25,22 @@ const ChapterStepper: FC<ChapterStepperProps> = (props) => {
   const { open } = props;
 
   const router = useRouter();
+  const dispatch = useDispatch();
   const [selectedStepIndex, setSelectStepIndex] = useState(0);
-  const chapterList = [chapters["1"], chapters["2"], chapters["3"]];
+  const chapterList = [
+    chapters["intro"],
+    chapters["1"],
+    chapters["2"],
+    chapters["3"],
+  ];
 
   const onStepClicked = (stepIndex: number) => () => {
     setSelectStepIndex(stepIndex);
   };
 
-  const onStartChapter = (chapterNumber: number) => () => {
-    router.push(`/chapter-${chapterNumber}/intro`);
+  const onStartChapter = (initPath: string) => () => {
+    dispatch(displaySlice.actions.handleChapterStepper(false));
+    router.push(initPath);
   };
 
   return (
@@ -47,8 +57,8 @@ const ChapterStepper: FC<ChapterStepperProps> = (props) => {
           orientation="vertical"
           nonLinear={true}
         >
-          {chapterList.map(({ chapterNumber, title, description }, index) => (
-            <Step key={chapterNumber}>
+          {chapterList.map(({ initPath, title, description }, index) => (
+            <Step key={index}>
               <StepButton onClick={onStepClicked(index)}>
                 <StepLabel>{title}</StepLabel>
               </StepButton>
@@ -57,9 +67,7 @@ const ChapterStepper: FC<ChapterStepperProps> = (props) => {
                 <Typography>{description}</Typography>
                 <div>
                   <div>
-                    <Button onClick={onStartChapter(chapterNumber)}>
-                      始める！
-                    </Button>
+                    <Button onClick={onStartChapter(initPath)}>始める！</Button>
                   </div>
                 </div>
               </StepContent>

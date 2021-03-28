@@ -7,7 +7,7 @@ import { useEffect } from "react";
 
 const Chapter1Intro = () => {
   const router = useRouter();
-  const { chapterNumber, title } = chapters["1"];
+  const { title } = chapters["1"];
 
   useEffect(() => {
     setTimeout(() => {
@@ -17,7 +17,7 @@ const Chapter1Intro = () => {
 
   return (
     <AppLayout hideMenu={true}>
-      <ChapterFrontispiece chapterNumber={chapterNumber} chapterTitle={title} />
+      <ChapterFrontispiece chapterNumber={1} chapterTitle={title} />
     </AppLayout>
   );
 };

@@ -70,6 +70,11 @@ export const section2: ScriptType[] = [];
 
 export const section3: ScriptType[] = [
   {
+    type: "character",
+    character: [{ speaker: "hanamaru", position: 0.5, type: "futsu" }],
+    waitSeconds: 0,
+  },
+  {
     type: "lines",
     speaker: "hanamaru",
     text:
@@ -77,6 +82,12 @@ export const section3: ScriptType[] = [
     waitSeconds: 0,
   },
   { type: "click" },
+  { type: "character_clear" },
+  {
+    type: "character",
+    character: [{ speaker: "yoshiko", position: 0.5, type: "futsu" }],
+    waitSeconds: 0,
+  },
   {
     type: "lines",
     speaker: "yoshiko",

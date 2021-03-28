@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import { NextPage } from "next";
+import { useRouter } from "next/router";
 
 import CharacterRenderer from "@/components/CharacterRenderer";
 import AppLayout from "@/components/AppLayout";
@@ -10,13 +12,23 @@ import styles from "@/styles/chapter-1.module.scss";
 import useScript from "@/components/hooks/useScript";
 
 const IntroSection2: NextPage = () => {
-  const { characterRendererSource, linesSource, moveForward } = useScript(
-    script
-  );
+  const router = useRouter();
+  const {
+    characterRendererSource,
+    linesSource,
+    isFinished,
+    moveForward,
+  } = useScript(script);
 
   const onClick = () => {
     moveForward();
   };
+
+  useEffect(() => {
+    if (isFinished) {
+      router.push(`/intro/section-3`);
+    }
+  }, [isFinished]);
 
   return (
     <AppLayout onClick={onClick}>

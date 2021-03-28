@@ -40,7 +40,10 @@ const LinesTextbox: FC<LinesTextboxProps> = (props) => {
         <span>{icon}</span>
         <span className={styles.name}>{name}</span>
       </div>
-      <div className={styles.speakerLines}>{text}</div>
+      <div
+        className={styles.speakerLines}
+        dangerouslySetInnerHTML={{ __html: text }}
+      />
     </div>
   );
 };

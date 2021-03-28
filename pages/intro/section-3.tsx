@@ -1,16 +1,15 @@
-import { useEffect, useState } from "react";
 import { NextPage } from "next";
 
 import CharacterRenderer from "@/components/CharacterRenderer";
 import AppLayout from "@/components/AppLayout";
 import LinesTextbox from "@/components/LinesTextbox";
 
-import { section1 as script } from "@/resources/script/chapter1";
+import { section3 as script } from "@/resources/script/intro";
 
 import styles from "@/styles/chapter-1.module.scss";
 import useScript from "@/components/hooks/useScript";
 
-const Chapter1Section1: NextPage = () => {
+const IntroSection3: NextPage = () => {
   const { characterRendererSource, linesSource, moveForward } = useScript(
     script
   );
@@ -29,4 +28,4 @@ const Chapter1Section1: NextPage = () => {
   );
 };
 
-export default Chapter1Section1;
+export default IntroSection3;

@@ -1,26 +1,28 @@
 import { FC, HTMLAttributes } from "react";
 import clsx from "clsx";
-import styles from "./Textbox.module.scss";
-import { ScriptItem, Speaker, Speakers } from "../script/Script";
+
+import { LinesScript, Speakers } from "@/resources/script/Script";
+
+import styles from "./LinesTextbox.module.scss";
 
 export interface TextboxProps extends HTMLAttributes<HTMLDivElement> {
-  script: ScriptItem;
+  script: LinesScript | null;
 }
 
-const Textbox: FC<TextboxProps> = (props) => {
+const LinesTextbox: FC<TextboxProps> = (props) => {
   const { script, className } = props;
 
   return (
     <div className={clsx(styles.textbox, className)}>
-      {script.type === "lines" && (
+      {script?.type === "lines" && script?.speaker !== "monologue" && (
         <div className={styles.speakerName}>
           <span>{Speakers[script.speaker].icon}</span>
           <span className={styles.name}>{Speakers[script.speaker].name}</span>
         </div>
       )}
-      <div className={styles.speakerLines}>{script.text}</div>
+      <div className={styles.speakerLines}>{script?.text}</div>
     </div>
   );
 };
 
-export default Textbox;
+export default LinesTextbox;

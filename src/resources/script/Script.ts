@@ -39,13 +39,25 @@ export const Speakers = {
 
 export type Speaker = keyof typeof Speakers;
 
-export type ScriptItem =
-  | {
-      type: "lines";
-      speaker: Speaker;
-      text: string;
-    }
-  | {
-      type: "monologue";
-      text: string;
-    };
+export type LinesScript = {
+  type: "lines";
+  speaker: Speaker | "monologue";
+  text: string;
+  waitSeconds: number;
+};
+
+export type CharacterScript = {
+  type: "character";
+  character: {
+    speaker: Speaker;
+    type: "futsu";
+    position: number; // 0-1
+  }[];
+  waitSeconds: number;
+};
+
+export type ClickRequireScript = {
+  type: "click";
+};
+
+export type ScriptType = LinesScript | CharacterScript | ClickRequireScript;

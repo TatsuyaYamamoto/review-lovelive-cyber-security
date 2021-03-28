@@ -6,7 +6,7 @@ import TwitterTimelineDemo from "../src/components/TwitterTimelineDemo/TwitterTi
 import Textbox from "../src/components/Textbox";
 import styles from "../src/styles/chapter-1.module.scss";
 
-import script from "../src/script/chapter1";
+import script from "../src/resources/script/chapter1";
 
 const Chapter2: NextPage = () => {
   const [scriptIndex, setScriptIndex] = useState(0);

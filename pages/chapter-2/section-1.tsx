@@ -5,7 +5,7 @@ import AppLayout from "@/components/AppLayout";
 import Textbox from "@/components/Textbox";
 import styles from "@/styles/chapter-1.module.scss";
 
-import script from "@/script/chapter1";
+import script from "@/resources/script/chapter1";
 import PasswordCheckForm from "@/components/PaswordCheckForm";
 import { HsimpResult } from "@/helpers/howSecureIsMyPassword";
 

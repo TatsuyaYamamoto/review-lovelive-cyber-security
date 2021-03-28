@@ -27,12 +27,9 @@ const CharacterRenderer: FC<CharacterRendererProps> = (props) => {
         <img
           key={index}
           src={target.imageUrl}
+          className={styles.character}
           style={{
-            position: "absolute",
-            bottom: 0,
             left: `${100 * target.position}%`,
-            width: "70%",
-            transform: "translateX(-50%)",
           }}
         />
       ))}

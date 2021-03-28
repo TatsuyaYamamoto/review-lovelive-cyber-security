@@ -47,11 +47,6 @@ const ChapterStepper: FC<ChapterStepperProps> = (props) => {
     <Dialog open={open}>
       <DialogTitle>{"チャプター選択"}</DialogTitle>
       <DialogContent>
-        <DialogContentText>
-          Let Google help apps determine location. This means sending anonymous
-          location data to Google, even when no apps are running.
-        </DialogContentText>
-
         <Stepper
           activeStep={selectedStepIndex}
           orientation="vertical"

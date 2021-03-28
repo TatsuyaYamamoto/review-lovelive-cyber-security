@@ -1,4 +1,5 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
+import { useRouter } from "next/router";
 
 import styles from "./ChapterFrontispiece.module.scss";
 
@@ -7,7 +8,14 @@ export interface ChapterFrontispieceProps {
   chapterTitle: string;
 }
 const ChapterFrontispiece: FC<ChapterFrontispieceProps> = (props) => {
+  const router = useRouter();
   const { chapterNumber, chapterTitle } = props;
+
+  useEffect(() => {
+    setTimeout(() => {
+      router.push(`/chapter-${chapterNumber}/section-1`);
+    }, 2000);
+  }, []);
 
   return (
     <div className={styles.chapterFrontispiece}>

@@ -1,18 +1,24 @@
 import { FC } from "react";
 
 import styles from "./CharacterRenderer.module.scss";
-import { CharacterScript } from "@/resources/script/Script";
+import { Speaker } from "@/resources/script/Script";
+
+export type CharacterRendererSource = {
+  speaker: Speaker;
+  position: number;
+  type: "futsu";
+}[];
 
 export interface CharacterRendererProps {
-  script: CharacterScript | null;
+  source: CharacterRendererSource;
 }
 
 const CharacterRenderer: FC<CharacterRendererProps> = (props) => {
-  const { script } = props;
+  const { source } = props;
   const renderTargets =
-    script?.character.map((c) => ({
-      imageUrl: `/images/${c.speaker}_${c.type}.png`,
-      position: c.position,
+    source?.map((s) => ({
+      imageUrl: `/images/${s.speaker}_${s.type}.png`,
+      position: s.position,
     })) || [];
 
   return (

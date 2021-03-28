@@ -56,8 +56,16 @@ export type CharacterScript = {
   waitSeconds: number;
 };
 
+export type CharacterClearScript = {
+  type: "character_clear";
+};
+
 export type ClickRequireScript = {
   type: "click";
 };
 
-export type ScriptType = LinesScript | CharacterScript | ClickRequireScript;
+export type ScriptType =
+  | LinesScript
+  | CharacterScript
+  | CharacterClearScript
+  | ClickRequireScript;

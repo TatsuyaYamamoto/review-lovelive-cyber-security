@@ -10,7 +10,7 @@ export const section1: ScriptType[] = [
   { type: "click" },
   {
     type: "character",
-    character: [{ speaker: "hanamaru", position: 0.2, type: "futsu" }],
+    character: [{ speaker: "hanamaru", position: 0.25, type: "futsu" }],
     waitSeconds: 0,
   },
   {
@@ -22,16 +22,25 @@ export const section1: ScriptType[] = [
   { type: "click" },
   {
     type: "character",
-    character: [
-      { speaker: "hanamaru", position: 0.25, type: "futsu" },
-      { speaker: "yoshiko", position: 0.75, type: "futsu" },
-    ],
+    character: [{ speaker: "yoshiko", position: 0.75, type: "futsu" }],
     waitSeconds: 0,
   },
   {
     type: "lines",
     speaker: "yoshiko",
     text: "パソコンで読書？をしているなんて、珍しいわね",
+    waitSeconds: 0,
+  },
+  {
+    type: "character_clear",
+  },
+  {
+    type: "character",
+    character: [
+      { speaker: "yoshiko", position: 0.15, type: "futsu" },
+      { speaker: "hanamaru", position: 0.5, type: "futsu" },
+      { speaker: "ruby", position: 0.85, type: "futsu" },
+    ],
     waitSeconds: 0,
   },
   { type: "click" },

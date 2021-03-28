@@ -1,11 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 
-import {
-  CharacterScript,
-  LinesScript,
-  ScriptType,
-} from "@/resources/script/Script";
+import { LinesScript, ScriptType } from "@/resources/script/Script";
 import { wait } from "@/helpers/utiles";
+import { CharacterRendererSource } from "@/components/CharacterRenderer";
+import { LinesSource } from "@/components/LinesTextbox";
 
 const useScript = (script: ScriptType[]) => {
   const [isFinished, handleFinished] = useState(false);
@@ -27,13 +25,12 @@ const useScript = (script: ScriptType[]) => {
   }, [script]);
 
   const [
-    currentCharacterScript,
-    setCurrentCharacterScript,
-  ] = useState<CharacterScript | null>(null);
-  const [
-    currentLinesScript,
-    setCurrentLinesScript,
-  ] = useState<LinesScript | null>(null);
+    characterRendererSource,
+    setCharacterRendererSource,
+  ] = useState<CharacterRendererSource>([]);
+  const [linesSource, setLinesSource] = useState<LinesSource>({
+    speaker: "blank",
+  });
   const [scriptBlockIndex, setScriptBlockIndex] = useState(0);
   const currentScriptBlock = scriptBlocks[scriptBlockIndex];
   const [isClickReady, handleClickReady] = useState(false);
@@ -50,11 +47,20 @@ const useScript = (script: ScriptType[]) => {
         }
         if (scriptItem.type === "lines") {
           await wait(scriptItem.waitSeconds);
-          setCurrentLinesScript(scriptItem);
+          setLinesSource(scriptItem);
         }
+
+        if (scriptItem.type === "character_clear") {
+          setCharacterRendererSource([]);
+        }
+
         if (scriptItem.type === "character") {
           await wait(scriptItem.waitSeconds);
-          setCurrentCharacterScript(scriptItem);
+
+          setCharacterRendererSource((current) => [
+            ...current,
+            ...scriptItem.character,
+          ]);
         }
       }
 
@@ -71,8 +77,8 @@ const useScript = (script: ScriptType[]) => {
 
   return {
     isFinished,
-    currentCharacterScript,
-    currentLinesScript,
+    characterRendererSource,
+    linesSource,
     moveForward,
   };
 };

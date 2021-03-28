@@ -1,26 +1,46 @@
 import { FC, HTMLAttributes } from "react";
 import clsx from "clsx";
 
-import { LinesScript, Speakers } from "@/resources/script/Script";
+import { Speaker, Speakers } from "@/resources/script/Script";
 
 import styles from "./LinesTextbox.module.scss";
 
-export interface TextboxProps extends HTMLAttributes<HTMLDivElement> {
-  script: LinesScript | null;
+export type LinesSource =
+  | {
+      speaker: Speaker | "monologue";
+      text: string;
+    }
+  | { speaker: "blank" };
+
+export interface LinesTextboxProps extends HTMLAttributes<HTMLDivElement> {
+  source: LinesSource;
 }
 
-const LinesTextbox: FC<TextboxProps> = (props) => {
-  const { script, className } = props;
+const LinesTextbox: FC<LinesTextboxProps> = (props) => {
+  const { source, className } = props;
+
+  if (source.speaker === "blank") {
+    return <div className={clsx(styles.textbox, className)} />;
+  }
+
+  if (source.speaker === "monologue") {
+    return (
+      <div className={clsx(styles.textbox, className)}>
+        <div className={styles.speakerLines}>{source.text}</div>
+      </div>
+    );
+  }
+
+  const { speaker, text } = source;
+  const { icon, name } = Speakers[speaker];
 
   return (
     <div className={clsx(styles.textbox, className)}>
-      {script?.type === "lines" && script?.speaker !== "monologue" && (
-        <div className={styles.speakerName}>
-          <span>{Speakers[script.speaker].icon}</span>
-          <span className={styles.name}>{Speakers[script.speaker].name}</span>
-        </div>
-      )}
-      <div className={styles.speakerLines}>{script?.text}</div>
+      <div className={styles.speakerName}>
+        <span>{icon}</span>
+        <span className={styles.name}>{name}</span>
+      </div>
+      <div className={styles.speakerLines}>{text}</div>
     </div>
   );
 };

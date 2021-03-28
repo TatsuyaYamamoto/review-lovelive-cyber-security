@@ -24,7 +24,7 @@ const PasswordCheckForm: FC<PasswordCheckFormProps> = (props) => {
     null
   );
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: any) => {
     const hsimpResult = calculatePasswordStrength(data.password);
     setEstimatedCrackTime(hsimpResult.estimatedTime);
     onResult(hsimpResult);

@@ -3,7 +3,7 @@ import { Fragment, FC, useState, useEffect } from "react";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
-import ListItem from "@material-ui/core/ListItem";
+import ListItem, { ListItemProps } from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import Collapse from "@material-ui/core/Collapse";
@@ -14,7 +14,7 @@ import ExpandMore from "@material-ui/icons/ExpandMore";
 import { appLinks, externalLinks, refsList } from "@/resources/links";
 
 // https://material-ui.com/ja/components/lists/
-function ListItemLink(props) {
+function ListItemLink(props: any) {
   return <ListItem button component="a" {...props} />;
 }
 

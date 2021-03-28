@@ -1,11 +1,12 @@
-import { useEffect } from "react";
+import { FC, useEffect } from "react";
 import Head from "next/head";
+import { AppProps } from "next/app";
 
 import "../src/styles/globals.css";
 
 import { renderClickEffect } from "@/helpers/clickEffect";
 
-function MyApp({ Component, pageProps }) {
+const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
   useEffect(() => {
     document.addEventListener("click", renderClickEffect);
   }, []);
@@ -19,6 +20,6 @@ function MyApp({ Component, pageProps }) {
       <Component {...pageProps} />
     </>
   );
-}
+};
 
 export default MyApp;

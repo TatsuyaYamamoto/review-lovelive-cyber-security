@@ -25,11 +25,11 @@ const ChapterStepper: FC<ChapterStepperProps> = (props) => {
   const [selectedStepIndex, setSelectStepIndex] = useState(0);
   const chapterList = [chapters["1"], chapters["2"], chapters["3"]];
 
-  const onStepClicked = (stepIndex) => () => {
+  const onStepClicked = (stepIndex: number) => () => {
     setSelectStepIndex(stepIndex);
   };
 
-  const onStartChapter = (chapterNumber) => () => {
+  const onStartChapter = (chapterNumber: number) => () => {
     router.push(`/chapter-${chapterNumber}/intro`);
   };
 

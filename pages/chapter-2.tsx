@@ -1,26 +1,24 @@
-import { useState } from "react";
 import { NextPage } from "next";
 
 import AppLayout from "../src/components/AppLayout";
 import TwitterTimelineDemo from "../src/components/TwitterTimelineDemo/TwitterTimelineDemo";
-import Textbox from "../src/components/Textbox";
+import LinesTextbox from "../src/components/LinesTextbox";
 import styles from "../src/styles/chapter-1.module.scss";
 
-import script from "../src/resources/script/chapter1";
+import { section1 } from "@/resources/script/chapter1";
+import useScript from "@/components/hooks/useScript";
 
 const Chapter2: NextPage = () => {
-  const [scriptIndex, setScriptIndex] = useState(0);
+  const { linesSource, moveForward } = useScript(section1);
 
   const onClick = () => {
-    setScriptIndex((value) => value + 1);
+    moveForward();
   };
-
-  const currentScript = script[scriptIndex];
 
   return (
     <AppLayout onClick={onClick}>
       <TwitterTimelineDemo />
-      <Textbox className={styles.textbox} script={currentScript} />
+      <LinesTextbox className={styles.textbox} source={linesSource} />
     </AppLayout>
   );
 };

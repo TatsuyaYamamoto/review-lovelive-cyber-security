@@ -1,22 +1,20 @@
-import { useState } from "react";
 import { NextPage } from "next";
 
 import AppLayout from "@/components/AppLayout";
-import Textbox from "@/components/Textbox";
+import LinesTextbox from "@/components/LinesTextbox";
 import styles from "@/styles/chapter-1.module.scss";
 
-import script from "@/resources/script/chapter1";
+import { section1 } from "@/resources/script/chapter1";
 import PasswordCheckForm from "@/components/PaswordCheckForm";
 import { HsimpResult } from "@/helpers/howSecureIsMyPassword";
+import useScript from "@/components/hooks/useScript";
 
 const Chapter2Section1: NextPage = () => {
-  const [scriptIndex, setScriptIndex] = useState(0);
+  const { linesSource, moveForward } = useScript(section1);
 
   const onClick = () => {
-    setScriptIndex((value) => value + 1);
+    moveForward();
   };
-
-  const currentScript = script[scriptIndex];
 
   const onPasswordCheckResult = (result: HsimpResult) => {
     console.log(result);
@@ -25,7 +23,7 @@ const Chapter2Section1: NextPage = () => {
   return (
     <AppLayout onClick={onClick}>
       <PasswordCheckForm onResult={onPasswordCheckResult} />
-      <Textbox className={styles.textbox} script={currentScript} />
+      <LinesTextbox className={styles.textbox} source={linesSource} />
     </AppLayout>
   );
 };

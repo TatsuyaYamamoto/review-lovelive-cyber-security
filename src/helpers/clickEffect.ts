@@ -8,7 +8,7 @@ export const renderClickEffect = (e: MouseEvent) => {
   effect.className = "click-effect";
 
   effect.addEventListener("animationend", () => {
-    effect.parentNode.removeChild(effect);
+    effect.parentNode?.removeChild(effect);
   });
 
   document.body.appendChild(effect);

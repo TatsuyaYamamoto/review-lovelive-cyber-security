@@ -10,4 +10,9 @@ declare module "*.scss" {
   export = classNames;
 }
 
+declare module "*.png" {
+  const dataUrl: string;
+  export default dataUrl;
+}
+
 declare module "hsimp-purescript";

@@ -67,8 +67,12 @@ export type FocusScript = {
   id: string | null /* clear */;
 };
 
+export type UserActionScript = {
+  type: "user_action";
+};
 export type ScriptType =
   | LinesScript
   | CharacterScript
   | CharacterClearScript
-  | FocusScript;
+  | FocusScript
+  | UserActionScript;

@@ -15,14 +15,33 @@ import styles from "@/styles/chapter-1.module.scss";
 
 const Chapter1Section2: NextPage = () => {
   const router = useRouter();
-  const { linesSource, isFinished, focusId, moveForward } = useScript(script);
+  const {
+    linesSource,
+    isFinished,
+    focusId,
+    isUserActionRequired,
+    moveForward,
+    resolveUserAction,
+  } = useScript(script);
 
   const onClick = () => {
+    if (isUserActionRequired) {
+      return;
+    }
     moveForward();
   };
 
   const onPasswordCheckResult = (result: HsimpResult) => {
-    console.log(result);
+    const { estimatedTime } = result;
+    if (!estimatedTime.endsWith("年")) {
+      return;
+    }
+    const estimatedYears = parseInt(estimatedTime.replace("年", ""));
+    if (estimatedYears < 400) {
+      return;
+    }
+
+    resolveUserAction();
   };
 
   useEffect(() => {

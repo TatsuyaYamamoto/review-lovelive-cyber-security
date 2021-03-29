@@ -16,11 +16,13 @@ const useScript = (scriptBlocks: ScriptType[][]) => {
     speaker: "blank",
   });
   const [scriptBlockIndex, setScriptBlockIndex] = useState(0);
-  const currentScriptBlock = scriptBlocks[scriptBlockIndex];
   const [isClickReady, handleClickReady] = useState(false);
   const [focusId, setFocusId] = useState<string | null>(null);
+  const [isUserActionRequired, handleUserActionRequired] = useState(false);
 
   useEffect(() => {
+    const currentScriptBlock = scriptBlocks[scriptBlockIndex];
+
     if (!currentScriptBlock) {
       handleFinished(true);
       return;
@@ -59,11 +61,15 @@ const useScript = (scriptBlocks: ScriptType[][]) => {
         if (scriptItem.type === "focus") {
           setFocusId(scriptItem.id);
         }
+
+        if (scriptItem.type === "user_action") {
+          handleUserActionRequired(true);
+        }
       }
 
       handleClickReady(true);
     })();
-  }, [currentScriptBlock]);
+  }, [scriptBlockIndex]);
 
   const moveForward = () => {
     if (!isClickReady) {
@@ -72,12 +78,19 @@ const useScript = (scriptBlocks: ScriptType[][]) => {
     setScriptBlockIndex((value) => value + 1);
   };
 
+  const resolveUserAction = () => {
+    handleUserActionRequired(false);
+    moveForward();
+  };
+
   return {
     isFinished,
     characterRendererSource,
     linesSource,
     focusId,
+    isUserActionRequired,
     moveForward,
+    resolveUserAction,
   };
 };
 

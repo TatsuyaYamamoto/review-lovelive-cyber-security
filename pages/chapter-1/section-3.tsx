@@ -1,18 +1,19 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { NextPage } from "next";
-import { useRouter } from "next/router";
+import { useAppDispatch } from "@/redux/hooks";
 
 import CharacterRenderer from "@/components/CharacterRenderer";
 import AppLayout from "@/components/AppLayout";
 import LinesTextbox from "@/components/LinesTextbox";
 
-import { section1 as script } from "@/resources/script/chapter1";
+import { section3 as script } from "@/resources/script/chapter1";
 
 import styles from "@/styles/chapter-1.module.scss";
 import useScript from "@/components/hooks/useScript";
+import displaySlice from "@/redux/slices/display";
 
-const Chapter1Section1: NextPage = () => {
-  const router = useRouter();
+const Chapter1Section3: NextPage = () => {
+  const dispatch = useAppDispatch();
   const {
     characterRendererSource,
     linesSource,
@@ -26,7 +27,7 @@ const Chapter1Section1: NextPage = () => {
 
   useEffect(() => {
     if (isFinished) {
-      router.push(`/chapter-1/section-2`);
+      dispatch(displaySlice.actions.handleChapterStepper(true));
     }
   }, [isFinished]);
 
@@ -40,4 +41,4 @@ const Chapter1Section1: NextPage = () => {
   );
 };
 
-export default Chapter1Section1;
+export default Chapter1Section3;

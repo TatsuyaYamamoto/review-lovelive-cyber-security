@@ -1,4 +1,5 @@
 import { FC, MouseEvent, useState } from "react";
+import clsx from "clsx";
 
 import Card from "@material-ui/core/Card";
 import TextField from "@material-ui/core/TextField";
@@ -13,10 +14,12 @@ import {
 } from "@/helpers/howSecureIsMyPassword";
 
 interface PasswordCheckFormProps {
+  className?: string;
+  focusId: string | null;
   onResult: (result: HsimpResult) => void;
 }
 const PasswordCheckForm: FC<PasswordCheckFormProps> = (props) => {
-  const { onResult } = props;
+  const { onResult, focusId, className } = props;
   const { register, handleSubmit, formState } = useForm({
     mode: "onChange",
   });
@@ -35,7 +38,7 @@ const PasswordCheckForm: FC<PasswordCheckFormProps> = (props) => {
   };
 
   return (
-    <Card className={styles.card}>
+    <Card className={clsx(styles.card, className)}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <TextField
@@ -45,6 +48,9 @@ const PasswordCheckForm: FC<PasswordCheckFormProps> = (props) => {
             inputProps={{ name: "password" }}
             inputRef={register({ required: true })}
             onClick={stopPropagation}
+            className={clsx({
+              [styles.focus]: focusId === "password_text",
+            })}
           />
         </div>
         <Button
@@ -53,6 +59,9 @@ const PasswordCheckForm: FC<PasswordCheckFormProps> = (props) => {
           onClick={stopPropagation}
           type="submit"
           disabled={!formState.isValid}
+          className={clsx({
+            [styles.focus]: focusId === "calc_button",
+          })}
         >
           計測開始
         </Button>

@@ -18,6 +18,7 @@ const useScript = (scriptBlocks: ScriptType[][]) => {
   const [scriptBlockIndex, setScriptBlockIndex] = useState(0);
   const currentScriptBlock = scriptBlocks[scriptBlockIndex];
   const [isClickReady, handleClickReady] = useState(false);
+  const [focusId, setFocusId] = useState<string | null>(null);
 
   useEffect(() => {
     if (!currentScriptBlock) {
@@ -54,6 +55,10 @@ const useScript = (scriptBlocks: ScriptType[][]) => {
             ];
           });
         }
+
+        if (scriptItem.type === "focus") {
+          setFocusId(scriptItem.id);
+        }
       }
 
       handleClickReady(true);
@@ -71,6 +76,7 @@ const useScript = (scriptBlocks: ScriptType[][]) => {
     isFinished,
     characterRendererSource,
     linesSource,
+    focusId,
     moveForward,
   };
 };

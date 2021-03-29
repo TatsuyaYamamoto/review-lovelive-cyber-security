@@ -62,4 +62,13 @@ export type CharacterClearScript = {
   type: "character_clear";
 };
 
-export type ScriptType = LinesScript | CharacterScript | CharacterClearScript;
+export type FocusScript = {
+  type: "focus";
+  id: string | null /* clear */;
+};
+
+export type ScriptType =
+  | LinesScript
+  | CharacterScript
+  | CharacterClearScript
+  | FocusScript;

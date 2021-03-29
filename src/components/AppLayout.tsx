@@ -10,6 +10,8 @@ import ChapterStepper from "@/components/ChapterStepper";
 import FootnoteWindow from "@/components/FootnoteWindow";
 import footnoteSlice from "@/redux/slices/footnote";
 
+import images from "@/resources/images";
+
 export interface AppLayoutProps extends HTMLAttributes<HTMLDivElement> {
   hideMenu?: boolean;
 }

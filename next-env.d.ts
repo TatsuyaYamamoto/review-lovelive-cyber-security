@@ -16,3 +16,5 @@ declare module "*.png" {
 }
 
 declare module "hsimp-purescript";
+
+declare module "*.mdx";

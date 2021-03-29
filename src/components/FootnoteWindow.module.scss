@@ -1,0 +1,39 @@
+$drawer-max-width: 80vw;
+$drawer-width: 400px;
+
+.drawer {
+  max-width: $drawer-max-width;
+  width: $drawer-width;
+  flex-shrink: 0;
+}
+
+.drawerPaper {
+  max-width: $drawer-max-width;
+  width: $drawer-width;
+}
+
+.drawerHeader {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.content {
+  overflow-wrap: break-word;
+  padding: 10px;
+
+  h1 {
+    font-size: 25px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  a {
+    color: #0070f3;
+    text-decoration: underline;
+  }
+
+  font-size: 18px;
+}

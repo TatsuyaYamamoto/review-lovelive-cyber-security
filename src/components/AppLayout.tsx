@@ -1,11 +1,14 @@
 import { FC, MouseEvent, HTMLAttributes, useState, useEffect } from "react";
-
+import { useDispatch } from "react-redux";
 import { useAppSelector } from "@/redux/hooks";
 
 import styles from "./AppLayout.module.scss";
 import Menu from "./Menu";
 import MenuButton from "./MenuButton";
+
 import ChapterStepper from "@/components/ChapterStepper";
+import FootnoteWindow from "@/components/FootnoteWindow";
+import footnoteSlice from "@/redux/slices/footnote";
 
 export interface AppLayoutProps extends HTMLAttributes<HTMLDivElement> {
   hideMenu?: boolean;
@@ -13,7 +16,10 @@ export interface AppLayoutProps extends HTMLAttributes<HTMLDivElement> {
 
 const AppLayout: FC<AppLayoutProps> = (props) => {
   const { hideMenu = false, children, ...others } = props;
+
+  const dispatch = useDispatch();
   const { openChapterStepper } = useAppSelector((s) => s.display);
+  const { renderingFootnoteId } = useAppSelector((s) => s.footnote);
   const [isOpenMenu, handleOpenMenu] = useState(false);
 
   const onMenuOpen = () => {};
@@ -25,6 +31,10 @@ const AppLayout: FC<AppLayoutProps> = (props) => {
   const onMenuButtonClicked = (e: MouseEvent) => {
     e.stopPropagation();
     handleOpenMenu(true);
+  };
+
+  const handleFootnoteWindowClose = () => {
+    dispatch(footnoteSlice.actions.closeFootnoteWindow());
   };
 
   return (
@@ -41,6 +51,10 @@ const AppLayout: FC<AppLayoutProps> = (props) => {
       </div>
       <Menu open={isOpenMenu} onOpen={onMenuOpen} onClose={onMenuClose} />
       <ChapterStepper open={openChapterStepper} />
+      <FootnoteWindow
+        renderingFootnoteId={renderingFootnoteId}
+        handleClose={handleFootnoteWindowClose}
+      />
     </>
   );
 };

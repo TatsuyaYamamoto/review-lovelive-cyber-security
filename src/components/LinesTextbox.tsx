@@ -1,9 +1,13 @@
-import { FC, HTMLAttributes } from "react";
+import { FC, HTMLAttributes, MouseEvent } from "react";
+import { useDispatch } from "react-redux";
+import JsxParser from "react-jsx-parser";
 import clsx from "clsx";
 
+import footnoteSlice from "@/redux/slices/footnote";
 import { Speaker, Speakers } from "@/resources/script/Script";
 
 import styles from "./LinesTextbox.module.scss";
+import { FootnoteId } from "@/resources/footnote";
 
 export type LinesSource =
   | {
@@ -18,6 +22,7 @@ export interface LinesTextboxProps extends HTMLAttributes<HTMLDivElement> {
 
 const LinesTextbox: FC<LinesTextboxProps> = (props) => {
   const { source, className } = props;
+  const dispatch = useDispatch();
 
   if (source.speaker === "blank") {
     return <div className={clsx(styles.textbox, className)} />;
@@ -31,6 +36,13 @@ const LinesTextbox: FC<LinesTextboxProps> = (props) => {
     );
   }
 
+  const clickLink = (footnoteId: FootnoteId) => (e: MouseEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
+
+    dispatch(footnoteSlice.actions.openFootnoteWindow(footnoteId));
+  };
+
   const { speaker, text } = source;
   const { icon, name } = Speakers[speaker];
 
@@ -40,10 +52,14 @@ const LinesTextbox: FC<LinesTextboxProps> = (props) => {
         <span>{icon}</span>
         <span className={styles.name}>{name}</span>
       </div>
-      <div
-        className={styles.speakerLines}
-        dangerouslySetInnerHTML={{ __html: text }}
-      />
+      <div className={styles.speakerLines}>
+        <JsxParser
+          // https://github.com/TroyAlford/react-jsx-parser#basic-usage---injecting-jsx-as-a-string
+          blacklistedAttrs={[]}
+          bindings={{ clickLink }}
+          jsx={text}
+        />
+      </div>
     </div>
   );
 };

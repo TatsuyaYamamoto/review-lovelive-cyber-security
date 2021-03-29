@@ -1,7 +1,7 @@
 const path = require("path");
-const urlLoader = require("url-loader");
+const withMDX = require("@next/mdx")();
 
-module.exports = {
+module.exports = withMDX({
   webpack(config, options) {
     config.resolve.alias["@"] = path.join(__dirname, "src");
 
@@ -12,4 +12,4 @@ module.exports = {
 
     return config;
   },
-};
+});

@@ -1,28 +1,12 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
-import { LinesScript, ScriptType } from "@/resources/script/Script";
+import { ScriptType } from "@/resources/script/Script";
 import { wait } from "@/helpers/utiles";
 import { CharacterRendererSource } from "@/components/CharacterRenderer";
 import { LinesSource } from "@/components/LinesTextbox";
 
-const useScript = (script: ScriptType[]) => {
+const useScript = (scriptBlocks: ScriptType[][]) => {
   const [isFinished, handleFinished] = useState(false);
-
-  const scriptBlocks = useMemo(() => {
-    const _scriptBlocks: ScriptType[][] = [];
-    let _scriptBlockIndex = 0;
-    script.forEach((item) => {
-      if (!_scriptBlocks[_scriptBlockIndex]) {
-        _scriptBlocks[_scriptBlockIndex] = [];
-      }
-      _scriptBlocks[_scriptBlockIndex].push(item);
-
-      if (item.type === "click") {
-        _scriptBlockIndex += 1;
-      }
-    });
-    return _scriptBlocks;
-  }, [script]);
 
   const [
     characterRendererSource,
@@ -43,8 +27,6 @@ const useScript = (script: ScriptType[]) => {
 
     (async () => {
       for (const scriptItem of currentScriptBlock) {
-        if (scriptItem.type === "click") {
-        }
         if (scriptItem.type === "lines") {
           await wait(scriptItem.waitSeconds);
           setLinesSource(scriptItem);
@@ -57,10 +39,20 @@ const useScript = (script: ScriptType[]) => {
         if (scriptItem.type === "character") {
           await wait(scriptItem.waitSeconds);
 
-          setCharacterRendererSource((current) => [
-            ...current,
-            ...scriptItem.character,
-          ]);
+          setCharacterRendererSource((current) => {
+            return [
+              // キャラクターの重複を避ける
+              ...current.filter((currentItem) => {
+                for (const { speaker } of scriptItem.character) {
+                  if (currentItem.speaker === speaker) {
+                    return false;
+                  }
+                }
+                return true;
+              }),
+              ...scriptItem.character,
+            ];
+          });
         }
       }
 

@@ -2,12 +2,12 @@ import { FC } from "react";
 
 import styles from "./CharacterRenderer.module.scss";
 import { Speaker } from "@/resources/script/Script";
-import images from "@/resources/images";
+import images, { CharaFacialType } from "@/resources/images";
 
 export type CharacterRendererSource = {
   speaker: Speaker;
   position: number;
-  type: "futsu";
+  type: CharaFacialType;
 }[];
 
 export interface CharacterRendererProps {
@@ -18,6 +18,7 @@ const CharacterRenderer: FC<CharacterRendererProps> = (props) => {
   const { source } = props;
   const renderTargets =
     source?.map((s) => ({
+      // @ts-ignore TODO
       imageUrl: images[`${s.speaker}_${s.type}_png` as const],
       position: s.position,
     })) || [];

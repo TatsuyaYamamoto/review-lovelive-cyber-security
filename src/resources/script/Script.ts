@@ -1,3 +1,5 @@
+import { CharaFacialType } from "@/resources/images";
+
 export const Speakers = {
   // chika: {
   //   icon: "🍊",
@@ -43,29 +45,21 @@ export type LinesScript = {
   type: "lines";
   speaker: Speaker | "monologue";
   text: string;
-  waitSeconds: number;
+  waitSeconds?: number;
 };
 
 export type CharacterScript = {
   type: "character";
   character: {
     speaker: Speaker;
-    type: "futsu";
+    type: CharaFacialType;
     position: number; // 0-1
   }[];
-  waitSeconds: number;
+  waitSeconds?: number;
 };
 
 export type CharacterClearScript = {
   type: "character_clear";
 };
 
-export type ClickRequireScript = {
-  type: "click";
-};
-
-export type ScriptType =
-  | LinesScript
-  | CharacterScript
-  | CharacterClearScript
-  | ClickRequireScript;
+export type ScriptType = LinesScript | CharacterScript | CharacterClearScript;

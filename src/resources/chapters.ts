@@ -7,17 +7,17 @@ export const chapters = {
     description: "hogehogehogehoge",
   },
   1: {
-    initPath: "/chapter-1/intro",
+    initPath: "/chapter-1",
     title: "ツールのセキュリティホールを作らない",
     description: "hogehogehogehoge",
   },
   2: {
-    initPath: "/chapter-2/intro",
+    initPath: "/chapter-2",
     title: "人間のセキュリティホールを作らない",
     description: "hogehogehogehoge",
   },
   3: {
-    initPath: "/chapter-3/intro",
+    initPath: "/chapter-3",
     title: "被害の種を作らない、被害を広げない",
     description: "hogehogehogehoge",
   },

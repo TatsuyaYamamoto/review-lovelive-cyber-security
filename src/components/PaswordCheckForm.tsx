@@ -1,4 +1,4 @@
-import { FC, MouseEvent, useState } from "react";
+import { FC, MouseEvent, useState, ChangeEvent } from "react";
 import clsx from "clsx";
 
 import Card from "@material-ui/core/Card";
@@ -26,6 +26,7 @@ const PasswordCheckForm: FC<PasswordCheckFormProps> = (props) => {
   const [estimatedCrackTime, setEstimatedCrackTime] = useState<string | null>(
     null
   );
+  const [hasPasswordCharError, handlePasswordCharError] = useState(false);
 
   const onSubmit = (data: any) => {
     const hsimpResult = calculatePasswordStrength(data.password);
@@ -33,9 +34,24 @@ const PasswordCheckForm: FC<PasswordCheckFormProps> = (props) => {
     onResult(hsimpResult);
   };
 
+  // react-hook-form で実装して...
+  const onChange = (e: ChangeEvent<{ value: string }>) => {
+    const inputValue: string = e.target.value;
+    // https://support.google.com/accounts/answer/32040?hl=ja
+    // 半角英数字、記号(ASCII 標準文字)
+    // https://tools.m-bsys.com/data/charlist_ascii.php
+    // !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
+    const regex = /[^!-~]/g;
+    const found = inputValue.match(regex);
+
+    handlePasswordCharError(!!found);
+  };
+
   const stopPropagation = (e: MouseEvent) => {
     e.stopPropagation();
   };
+
+  const isFormValid = formState.isValid && !hasPasswordCharError;
 
   return (
     <Card className={clsx(styles.card, className)}>
@@ -48,8 +64,13 @@ const PasswordCheckForm: FC<PasswordCheckFormProps> = (props) => {
             inputProps={{ name: "password" }}
             inputRef={register({ required: true })}
             onClick={stopPropagation}
+            onChange={onChange}
             className={clsx({
               [styles.focus]: focusId === "password_text",
+            })}
+            error={hasPasswordCharError}
+            {...(hasPasswordCharError && {
+              helperText: "半角英数字、記号のみを使用して下さい。",
             })}
           />
         </div>
@@ -58,7 +79,7 @@ const PasswordCheckForm: FC<PasswordCheckFormProps> = (props) => {
           variant="outlined"
           onClick={stopPropagation}
           type="submit"
-          disabled={!formState.isValid}
+          disabled={!isFormValid}
           className={clsx({
             [styles.focus]: focusId === "calc_button",
           })}

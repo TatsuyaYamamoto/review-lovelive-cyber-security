@@ -6,6 +6,7 @@ import useAlert from "@/components/hooks/useAlert";
 import { officialTwitterHashtag } from "@/resources/urls";
 
 import styles from "@/styles/pages_index.module.scss";
+import AppLayout from "@/components/AppLayout";
 
 export default function Home() {
   const router = useRouter();
@@ -43,30 +44,32 @@ export default function Home() {
   };
 
   return (
-    <>
-      <div className={styles.root}>
+    <div className={styles.root}>
+      <div className={styles.inner}>
         <div className={styles.tieUpKeyword}>
           <span className={styles.tieUpKeywordInner}>
-            みんなで叶えるセキュリティ！
+            <span className={styles.inlineBlock}>みんなで叶える</span>
+            <span className={styles.inlineBlock}>セキュリティ！</span>
           </span>
         </div>
-        <h1 className={styles.title}>
-          <span>復習！</span>
-          <span>サイバーセキュリティ月間</span>
-        </h1>
-        <p className={styles.description}>REVIEW LOVELIVE CYBER SECURITY</p>
 
-        <a
-          href={officialTwitterHashtag}
-          target="_blank"
-          className={styles.hashtag}
-        >
-          #サイバーセキュリティは全員参加
-        </a>
-        <Button variant="contained" onClick={onClickStartButton}>
-          開始！
-        </Button>
+        <div className={styles.title}>
+          <span className={styles.inlineBlock}>復習！</span>
+          <span className={styles.inlineBlock}>サイバーセキュリティ月間</span>
+        </div>
+        <div className={styles.subtitle}>REVIEW LOVELIVE CYBER SECURITY</div>
+
+        <div className={styles.hashtag}>
+          <span className={styles.inlineBlock}>#サイバーセキュリティは</span>
+          <span className={styles.inlineBlock}>全員参加</span>
+        </div>
+
+        <div className={styles.startButtonWrapper}>
+          <button className={styles.startButton} onClick={onClickStartButton}>
+            復習を始める 😈💮🍭
+          </button>
+        </div>
       </div>
-    </>
+    </div>
   );
 }

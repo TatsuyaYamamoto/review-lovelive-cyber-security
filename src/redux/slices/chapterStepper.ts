@@ -1,4 +1,14 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, ThunkAction } from "@reduxjs/toolkit";
+import { wait } from "@/helpers/utiles";
+
+export const moveStep = (
+  from: number,
+  to: number
+): ThunkAction<any, any, any, any> => async (dispatch) => {
+  dispatch(displaySlice.actions.openChapterStepper({ index: from }));
+  await wait(0.5);
+  dispatch(displaySlice.actions.openChapterStepper({ index: to }));
+};
 
 const initialState = {
   openChapterStepper: false,

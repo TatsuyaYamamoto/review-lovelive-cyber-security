@@ -10,7 +10,7 @@ import { section3 as script } from "@/resources/script/chapter1";
 
 import styles from "@/styles/chapter-1.module.scss";
 import useScript from "@/components/hooks/useScript";
-import chapterStepperSlice from "@/redux/slices/chapterStepper";
+import chapterStepperSlice, { moveStep } from "@/redux/slices/chapterStepper";
 
 const Chapter1Section3: NextPage = () => {
   const dispatch = useAppDispatch();
@@ -27,11 +27,7 @@ const Chapter1Section3: NextPage = () => {
 
   useEffect(() => {
     if (isFinished) {
-      dispatch(
-        chapterStepperSlice.actions.openChapterStepper({
-          index: 2 /* chapter 2*/,
-        })
-      );
+      dispatch(moveStep(1, 2));
     }
   }, [isFinished]);
 

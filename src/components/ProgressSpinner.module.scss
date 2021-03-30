@@ -1,0 +1,12 @@
+.spinner {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+
+  z-index: 99999;
+  animation-duration: 500ms !important;
+}
+
+.circle {
+  color: rgb(209, 47, 125);
+}

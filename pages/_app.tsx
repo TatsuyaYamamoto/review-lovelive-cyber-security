@@ -5,6 +5,7 @@ import { AppProps } from "next/app";
 
 import "../src/styles/globals.css";
 
+import ProgressSpinner from "@/components/ProgressSpinner";
 import { renderClickEffect } from "@/helpers/clickEffect";
 import { store } from "@/redux/store";
 
@@ -26,6 +27,7 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
       <Provider store={store}>
         <Component {...pageProps} />
       </Provider>
+      <ProgressSpinner />
     </>
   );
 };

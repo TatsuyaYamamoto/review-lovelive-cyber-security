@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import display from "./slices/display";
+import chapterStepper from "./slices/chapterStepper";
 import footnote from "./slices/footnote";
 
 export const store = configureStore({
   reducer: {
-    display: display.reducer,
+    chapterStepper: chapterStepper.reducer,
     footnote: footnote.reducer,
   },
 });

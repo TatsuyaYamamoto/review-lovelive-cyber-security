@@ -4,11 +4,11 @@ import AppLayout from "@/components/AppLayout";
 import LinesTextbox from "@/components/LinesTextbox";
 import styles from "@/styles/chapter-1.module.scss";
 
-import { section1 } from "@/resources/script/chapter2";
+import { section1 as script } from "@/resources/script/chapter2";
 import useScript from "@/components/hooks/useScript";
 
 const Chapter2Section1: NextPage = () => {
-  const { linesSource, moveForward } = useScript(section1);
+  const { linesSource, moveForward } = useScript(script);
 
   const onClick = () => {
     moveForward();

@@ -70,23 +70,21 @@ export const section1: ScriptType[][] = [
     {
       type: "lines",
       speaker: "hanamaru",
-      text:
-        "「人間は最大のセキュリティホール」なんて言われているってハンドブックにも書いてあるずら。",
+      text: `<span><a href="#" onClick={clickLink("human_security_hall")}>「人間は最大のセキュリティホール」</a>なんて言われているってハンドブックにも書いてあるずら。</span>`,
     },
   ],
   [
     {
       type: "lines",
       speaker: "hanamaru",
-      text:
-        "個人情報はそれ自体も大切な情報だけれど、他のサービスのアカウント情報やパスワード情報も推測できる (P. 30)かもしれないから、大事に扱わないと駄目ずらぁ...。",
+      text: `<span>個人情報はそれ自体も大切な情報だけれど、<a href="#" onClick={clickLink("abuse_personal_infomation")}>他のサービスのアカウント情報やパスワード情報も推測できるかもしれない</a>から、大事に扱わないと駄目ずらぁ...。</span>`,
     },
   ],
   [
     {
       type: "lines",
       speaker: "hanamaru",
-      text: `<span>まさに<a href="#">心の隙</a>！自分のことは自分で守るずらぁ！</span>`,
+      text: `<span>まさに<a href="#" onClick={clickLink("kokoro_no_suki")}>心の隙</a>！自分のことは自分で守るずらぁ！</span>`,
     },
   ],
   [
@@ -123,7 +121,7 @@ export const section2: ScriptType[][] = [
     {
       type: "lines",
       speaker: "hanamaru",
-      text: `例えば、メールに書かれているリンクや添付ファイル、あとフィッシングサイトにも注意！`,
+      text: `<span>例えば、メールに書かれている<a href="#" onClick={clickLink("link_and_attachement")}>リンクや添付ファイル</a>、あと<a href="#" onClick={clickLink("phishing_site")}>フィッシングサイト</a>にも注意！</span>`,
     },
   ],
   [
@@ -235,7 +233,7 @@ export const section2: ScriptType[][] = [
     {
       type: "lines",
       speaker: "hanamaru",
-      text: `まるので出番がぁ！`,
+      text: `まるの出番がぁ！`,
     },
   ],
 ];

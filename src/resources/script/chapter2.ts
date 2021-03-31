@@ -155,7 +155,7 @@ export const section2: ScriptType[][] = [
     { type: "character_clear" },
     {
       type: "character",
-      character: [{ speaker: "hanamaru", type: "futsu", position: 0.5 }],
+      character: [{ speaker: "hanamaru", type: "kiri", position: 0.5 }],
     },
     {
       type: "lines",

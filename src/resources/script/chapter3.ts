@@ -240,7 +240,7 @@ export const section3: ScriptType[][] = [
     { type: "character_clear" },
     {
       type: "character",
-      character: [{ speaker: "yoshiko", type: "futsu", position: 0.5 }],
+      character: [{ speaker: "yoshiko", type: "fuman", position: 0.5 }],
     },
     {
       type: "lines",

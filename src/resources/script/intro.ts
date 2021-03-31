@@ -44,7 +44,7 @@ export const section1: ScriptType[][] = [
   [
     {
       type: "character",
-      character: [{ speaker: "yoshiko", position: 0.75, type: "futsu" }],
+      character: [{ speaker: "yoshiko", position: 0.75, type: "fuman" }],
     },
     {
       type: "lines",
@@ -218,7 +218,7 @@ export const section2: ScriptType[][] = [
     { type: "character_clear" },
     {
       type: "character",
-      character: [{ speaker: "hanamaru", position: 0.5, type: "egao" }],
+      character: [{ speaker: "hanamaru", position: 0.5, type: "fufun" }],
     },
     {
       type: "lines",
@@ -242,7 +242,7 @@ export const section2: ScriptType[][] = [
     { type: "character_clear" },
     {
       type: "character",
-      character: [{ speaker: "hanamaru", position: 0.5, type: "futsu" }],
+      character: [{ speaker: "hanamaru", position: 0.5, type: "kiri" }],
     },
     {
       type: "lines",
@@ -332,6 +332,10 @@ export const section2: ScriptType[][] = [
   ],
   [
     {
+      type: "character",
+      character: [{ speaker: "hanamaru", position: 0.75, type: "kiri" }],
+    },
+    {
       type: "lines",
       speaker: "hanamaru",
       text: `これはまるの解釈なんだけれど、まる達が使う"ツール"とまる達"人間"自身それぞれにセキュリティホールが出来ちゃうみたい。`,
@@ -340,7 +344,10 @@ export const section2: ScriptType[][] = [
   [
     {
       type: "character",
-      character: [{ speaker: "ruby", position: 0.25, type: "egao" }],
+      character: [
+        { speaker: "hanamaru", position: 0.75, type: "futsu" },
+        { speaker: "ruby", position: 0.25, type: "egao" },
+      ],
     },
     {
       type: "lines",

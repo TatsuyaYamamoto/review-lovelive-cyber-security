@@ -82,7 +82,7 @@ export const section1: ScriptType[][] = [
   [
     {
       type: "character",
-      character: [{ speaker: "hanamaru", type: "futsu", position: 0.75 }],
+      character: [{ speaker: "hanamaru", type: "fufun", position: 0.75 }],
     },
     {
       type: "lines",
@@ -294,7 +294,7 @@ export const section3: ScriptType[][] = [
     { type: "character_clear" },
     {
       type: "character",
-      character: [{ speaker: "hanamaru", type: "futsu", position: 0.5 }],
+      character: [{ speaker: "hanamaru", type: "kiri", position: 0.5 }],
     },
     {
       type: "lines",

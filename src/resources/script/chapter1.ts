@@ -5,11 +5,11 @@ export const section1: ScriptType[][] = [
     { type: "character_clear" },
     {
       type: "character",
-      character: [{ speaker: "ruby", type: "kanashi", position: 0.5 }],
+      character: [{ speaker: "ruby", type: "uyuyu", position: 0.5 }],
     },
     {
       type: "lines",
-      speaker: "yoshiko",
+      speaker: "ruby",
       text: "ツール...使っている道具やサービスのセキュリティホールかぁ...",
     },
   ],
@@ -40,7 +40,7 @@ export const section1: ScriptType[][] = [
   [
     {
       type: "character",
-      character: [{ speaker: "hanamaru", type: "futsu", position: 0.75 }],
+      character: [{ speaker: "hanamaru", type: "fuman", position: 0.75 }],
     },
     {
       type: "lines",
@@ -63,7 +63,7 @@ export const section1: ScriptType[][] = [
   [
     {
       type: "character",
-      character: [{ speaker: "hanamaru", type: "futsu", position: 0.75 }],
+      character: [{ speaker: "hanamaru", type: "egao", position: 0.75 }],
     },
     {
       type: "lines",
@@ -81,6 +81,10 @@ export const section1: ScriptType[][] = [
   ],
   [
     {
+      type: "character",
+      character: [{ speaker: "hanamaru", type: "futsu", position: 0.75 }],
+    },
+    {
       type: "lines",
       speaker: "hanamaru",
       text:
@@ -88,6 +92,10 @@ export const section1: ScriptType[][] = [
     },
   ],
   [
+    {
+      type: "character",
+      character: [{ speaker: "ruby", type: "ase", position: 0.25 }],
+    },
     {
       type: "lines",
       speaker: "ruby",
@@ -139,7 +147,8 @@ export const section2: ScriptType[][] = [
     {
       type: "lines",
       speaker: "monologue",
-      text: "400年超えのパスワードを目指しましょう！",
+      // TODO
+      text: `<span><a href='#' onClick={clickLink("dia_love_password")}>400年超え</a>の<a href="#" onClick={clickLink("secure_password")}>複雑なパスワード</a>を目指しましょう！</span>`,
     },
     {
       type: "user_action",
@@ -159,7 +168,7 @@ export const section3: ScriptType[][] = [
     { type: "character_clear" },
     {
       type: "character",
-      character: [{ speaker: "yoshiko", type: "futsu", position: 0.5 }],
+      character: [{ speaker: "yoshiko", type: "daten", position: 0.5 }],
     },
     {
       type: "lines",
@@ -168,6 +177,10 @@ export const section3: ScriptType[][] = [
     },
   ],
   [
+    {
+      type: "character",
+      character: [{ speaker: "yoshiko", type: "egao", position: 0.5 }],
+    },
     {
       type: "lines",
       speaker: "yoshiko",
@@ -178,7 +191,7 @@ export const section3: ScriptType[][] = [
     { type: "character_clear" },
     {
       type: "character",
-      character: [{ speaker: "ruby", type: "futsu", position: 0.5 }],
+      character: [{ speaker: "ruby", type: "uyuyu", position: 0.5 }],
     },
     {
       type: "lines",
@@ -191,7 +204,7 @@ export const section3: ScriptType[][] = [
     { type: "character_clear" },
     {
       type: "character",
-      character: [{ speaker: "yoshiko", type: "futsu", position: 0.5 }],
+      character: [{ speaker: "yoshiko", type: "daten", position: 0.5 }],
     },
     {
       type: "lines",
@@ -200,6 +213,10 @@ export const section3: ScriptType[][] = [
     },
   ],
   [
+    {
+      type: "character",
+      character: [{ speaker: "yoshiko", type: "futsu", position: 0.5 }],
+    },
     {
       type: "lines",
       speaker: "yoshiko",
@@ -212,7 +229,7 @@ export const section3: ScriptType[][] = [
       type: "character",
       character: [
         { speaker: "yoshiko", type: "futsu", position: 0.25 },
-        { speaker: "hanamaru", type: "futsu", position: 0.75 },
+        { speaker: "hanamaru", type: "egao", position: 0.75 },
       ],
     },
     {
@@ -222,6 +239,10 @@ export const section3: ScriptType[][] = [
     },
   ],
   [
+    {
+      type: "character",
+      character: [{ speaker: "hanamaru", type: "futsu", position: 0.75 }],
+    },
     {
       type: "lines",
       speaker: "hanamaru",
@@ -234,7 +255,7 @@ export const section3: ScriptType[][] = [
     {
       type: "character",
       character: [
-        { speaker: "ruby", type: "futsu", position: 0.25 },
+        { speaker: "ruby", type: "uyuyu", position: 0.25 },
         { speaker: "hanamaru", type: "futsu", position: 0.75 },
       ],
     },
@@ -246,6 +267,10 @@ export const section3: ScriptType[][] = [
     },
   ],
   [
+    {
+      type: "character",
+      character: [{ speaker: "hanamaru", type: "egao", position: 0.75 }],
+    },
     {
       type: "lines",
       speaker: "hanamaru",
@@ -289,7 +314,7 @@ export const section3: ScriptType[][] = [
     { type: "character_clear" },
     {
       type: "character",
-      character: [{ speaker: "ruby", type: "futsu", position: 0.5 }],
+      character: [{ speaker: "ruby", type: "egao", position: 0.5 }],
     },
     {
       type: "lines",

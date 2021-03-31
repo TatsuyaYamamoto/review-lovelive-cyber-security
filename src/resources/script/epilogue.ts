@@ -10,7 +10,7 @@ export const section1: ScriptType[][] = [
     {
       type: "lines",
       speaker: "hanamaru",
-      text: "色々合ったけれど、今日のお勉強はこんなところかずらぁ",
+      text: "色々あったけれど、今日のお勉強はこんなところかなぁ",
     },
   ],
   [
@@ -85,8 +85,8 @@ export const section1: ScriptType[][] = [
     {
       type: "character",
       character: [
-        { speaker: "yoshiko", type: "egao", position: 0.15 },
-        { speaker: "hanamaru", type: "futsu", position: 0.5 },
+        { speaker: "yoshiko", type: "daten", position: 0.15 },
+        { speaker: "hanamaru", type: "egao", position: 0.5 },
         { speaker: "ruby", type: "egao", position: 0.85 },
       ],
     },

@@ -5,7 +5,7 @@ export const section1: ScriptType[][] = [
     { type: "character_clear" },
     {
       type: "character",
-      character: [{ speaker: "yoshiko", type: "futsu", position: 0.5 }],
+      character: [{ speaker: "yoshiko", type: "kanashi", position: 0.25 }],
     },
     {
       type: "lines",
@@ -15,10 +15,9 @@ export const section1: ScriptType[][] = [
     },
   ],
   [
-    { type: "character_clear" },
     {
       type: "character",
-      character: [{ speaker: "hanamaru", type: "futsu", position: 0.5 }],
+      character: [{ speaker: "hanamaru", type: "kanashi", position: 0.75 }],
     },
     {
       type: "lines",
@@ -37,7 +36,7 @@ export const section1: ScriptType[][] = [
     { type: "character_clear" },
     {
       type: "character",
-      character: [{ speaker: "ruby", type: "ase", position: 0.5 }],
+      character: [{ speaker: "ruby", type: "uyuyu", position: 0.5 }],
     },
     {
       type: "lines",
@@ -145,7 +144,7 @@ export const section2: ScriptType[][] = [
     {
       type: "lines",
       speaker: "ruby",
-      text: "Twitter を見て！SaintSnow のライブだって！",
+      text: "SNSを見て！SaintSnow のライブだって！",
     },
   ],
   [

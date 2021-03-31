@@ -20,6 +20,7 @@ import { useAppSelector } from "@/redux/hooks";
 import chapterStepperSlice from "@/redux/slices/chapterStepper";
 
 import styles from "./ChapterStepper.module.scss";
+import TwitterIconSvg from "@/assets/svg/TwitterIcon.svg";
 
 const StepIcon: FC<StepIconProps> = (props) => {
   const { icon } = props;
@@ -70,11 +71,16 @@ const ChapterStepper: FC<ChapterStepperProps> = (props) => {
     <Dialog open={open}>
       <DialogTitle>
         {"チャプター選択"}
-        {canClose && (
-          <IconButton className={styles.closeButton} onClick={handleClose}>
-            <CloseIcon />
+        <div className={styles.closeButton}>
+          <IconButton onClick={handleClose}>
+            <TwitterIconSvg />
           </IconButton>
-        )}
+          {canClose && (
+            <IconButton onClick={handleClose}>
+              <CloseIcon />
+            </IconButton>
+          )}
+        </div>
       </DialogTitle>
       <DialogContent>
         <Stepper

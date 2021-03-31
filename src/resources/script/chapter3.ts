@@ -233,6 +233,9 @@ export const section2: ScriptType[][] = [
       text: "たしかに...ちょっと落ち着かないと駄目だね。",
     },
   ],
+];
+
+export const section3: ScriptType[][] = [
   [
     { type: "character_clear" },
     {
@@ -275,7 +278,7 @@ export const section2: ScriptType[][] = [
     { type: "character_clear" },
     {
       type: "character",
-      character: [{ speaker: "hanamaru", type: "futsu", position: 0.5 }],
+      character: [{ speaker: "hanamaru", type: "fuman", position: 0.5 }],
     },
     {
       type: "lines",
@@ -288,7 +291,7 @@ export const section2: ScriptType[][] = [
     { type: "character_clear" },
     {
       type: "character",
-      character: [{ speaker: "ruby", type: "futsu", position: 0.5 }],
+      character: [{ speaker: "ruby", type: "uyuyu", position: 0.5 }],
     },
     {
       type: "lines",
@@ -310,5 +313,3 @@ export const section2: ScriptType[][] = [
     },
   ],
 ];
-
-export const section3: ScriptType[][] = [];

@@ -101,14 +101,14 @@ export const section1: ScriptType[][] = [
     {
       type: "lines",
       speaker: "hanamaru",
-      text: `<span>個人情報はそれ自体も大切な情報だけれど、<a href="#" onClick={clickLink("abuse_personal_infomation")}>他のサービスのアカウント情報やパスワード情報も推測できるかもしれない</a>から、大事に扱わないと駄目ずらぁ...。</span>`,
+      text: `<span>個人情報はそれ自体も大切な情報だけれど、他のサービスのアカウント情報やパスワード情報も推測できるかもしれないから、大事に扱わないと駄目ずらぁ...。</span>`,
     },
   ],
   [
     {
       type: "lines",
       speaker: "hanamaru",
-      text: `<span>まさに<a href="#" onClick={clickLink("kokoro_no_suki")}>心の隙</a>！自分のことは自分で守るずらぁ！</span>`,
+      text: `<span>まさに心の隙！自分のことは自分で守るずらぁ！</span>`,
     },
   ],
   [
@@ -160,7 +160,7 @@ export const section2: ScriptType[][] = [
     {
       type: "lines",
       speaker: "hanamaru",
-      text: `<span>例えば、メールに書かれている<a href="#" onClick={clickLink("link_and_attachement")}>リンクや添付ファイル</a>、あと<a href="#" onClick={clickLink("phishing_site")}>フィッシングサイト</a>にも注意！</span>`,
+      text: `<span>例えば、メールに書かれているリンクや添付ファイル、あとフィッシングサイトにも注意！</span>`,
     },
   ],
   [
@@ -171,7 +171,7 @@ export const section2: ScriptType[][] = [
     {
       type: "lines",
       speaker: "hanamaru",
-      text: `<span>...って<a href="#" onClick={clickLink("cyber_security_awareness_month")}>サイバーセキュリティ月間</a>でもやっていたずら。</span>`,
+      text: `<span>...ってサイバーセキュリティ月間でもやっていたずら。</span>`,
     },
   ],
   [

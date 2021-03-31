@@ -366,8 +366,7 @@ export const section3: ScriptType[][] = [
     {
       type: "lines",
       speaker: "hanamaru",
-      text:
-        "そうそう、<a href='#'>青字下線の部分</a>は参考用リンクを用意しているから見てみてね。",
+      text: `<span>そうそう、<a href='#' onClick={clickLink("footnote")}>青字下線の部分</a>は参考用リンクを用意しているから見てみてね。</span>`,
     },
   ],
   [

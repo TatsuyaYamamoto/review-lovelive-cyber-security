@@ -60,7 +60,7 @@ export const section1: ScriptType[][] = [
     {
       type: "lines",
       speaker: "ruby",
-      text: `<span>もう一度<a href="#" onClick={clickLink('motto')}>ポスターやパンフレット</a>を見たりして、新しく勉強したことは <a href='#' onClick={clickLink('cyber_security_hashtag')}>#サイバーセキュリティは全員参加</a>でみんなに共有してもいいかも！</span>`,
+      text: `<span>もう一度ポスターやパンフレットを見たりして、新しく勉強したことは <a href='#' onClick={clickLink('cyber_security_hashtag')}>#サイバーセキュリティは全員参加</a>でみんなに共有してもいいかも！</span>`,
     },
   ],
   [

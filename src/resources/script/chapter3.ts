@@ -65,7 +65,7 @@ export const section1: ScriptType[][] = [
     {
       type: "lines",
       speaker: "hanamaru",
-      text: `<span>そう！NISC！<a href="#" onClick={clickLink("nisc")}>内閣サイバーセキュリティセンター</a>のホームページからダウンロードしたんだった！</span>`,
+      text: `<span>そう！NISC！内閣サイバーセキュリティセンターのホームページからダウンロードしたんだった！</span>`,
     },
   ],
   [

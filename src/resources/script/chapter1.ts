@@ -220,7 +220,7 @@ export const section3: ScriptType[][] = [
     {
       type: "lines",
       speaker: "yoshiko",
-      text: `<span>そのために<a href='#' onClick={clickLink('two_factor_auth')}>二要素認証</a>というものがあるとリトルデーモン・リリィが言っていたわ。</span>`,
+      text: `<span>そのために二要素認証というものがあるとリトルデーモン・リリィが言っていたわ。</span>`,
     },
   ],
   [
@@ -299,7 +299,7 @@ export const section3: ScriptType[][] = [
     {
       type: "lines",
       speaker: "hanamaru",
-      text: `<span>それが、<a href='#' onClick={clickLink('two_factor_auth')}>二要素認証</a>ずら！</span>`,
+      text: `<span>それが、二要素認証ずら！</span>`,
     },
   ],
   [
@@ -344,7 +344,7 @@ export const section3: ScriptType[][] = [
     {
       type: "lines",
       speaker: "yoshiko",
-      text: `<span>その恩恵を受けて強力な結界を常にはっておくためにも、<a href='#' onClick={clickLink("update_to_latest")}>最新版へのアップデート</a>を意識したいわね</span>`,
+      text: `<span>その恩恵を受けて強力な結界を常にはっておくためにも、最新版へのアップデートを意識したいわね</span>`,
     },
   ],
 ];

@@ -18,6 +18,14 @@ export const externalLinks = [
 ];
 
 export const appLinks = [
-  { label: "このアプリについて", url: "", Icon: AppIcon },
-  { label: "ソースコード", url: "", Icon: GitHubIcon },
+  {
+    label: "このアプリについて",
+    url: "https://github.com/TatsuyaYamamoto/review-lovelive-cyber-security",
+    Icon: AppIcon,
+  },
+  {
+    label: "ソースコード",
+    url: "https://github.com/TatsuyaYamamoto/review-lovelive-cyber-security",
+    Icon: GitHubIcon,
+  },
 ];

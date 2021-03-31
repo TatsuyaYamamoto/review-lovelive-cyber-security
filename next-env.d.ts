@@ -18,3 +18,11 @@ declare module "*.png" {
 declare module "hsimp-purescript";
 
 declare module "*.mdx";
+
+declare var gtag: Gtag.Gtag;
+declare namespace Gtag {
+  interface Gtag {
+    (command: "config", targetId: string, config?: any): void;
+    (command: "event", eventName: string, eventParams?: any): void;
+  }
+}

@@ -1,34 +1,133 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Review LoveLive Cyber Security
 
-## Getting Started
+「復習！ [#サイバーセキュリティは全員参加](https://twitter.com/search?q=%23%E3%82%B5%E3%82%A4%E3%83%90%E3%83%BC%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E3%81%AF%E5%85%A8%E5%93%A1%E5%8F%82%E5%8A%A0&f=live) 」
 
-First, run the development server:
+## Scripts
 
 ```bash
-npm run dev
-# or
-yarn dev
+$ npm run dev
+
+$ npm run build
+
+$ npm run deploy
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## About "LoveLive Cyber Security"
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+[NISC | サイバーセキュリティ月間 | 『ラブライブ！サンシャイン!!』とのタイアップについて](https://www.nisc.go.jp/security-site/month/lovelive.html)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+> サイバーセキュリティについて、国民一人ひとりの関心を高め、理解を深めていただくために、
+> 『ラブライブ！サンシャイン!!』とタイアップ企画を実施し、ポスターやバナーなどを作成しました。
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- 報道資料の内容を略す
+  - オンラインを中心とした、サイバーセキュリティに関する普及啓発活動
+  - タイアップキーワードは、「みんなで叶えるセキュリティ！」
+    - サイバーセキュリティは全員参加で意識・理解を醸成し実現することが重要
+    - サイバーセキュリティを身近な事として考える
+  - 意識や理解を深める具体的にどのようなことに注意・行動するか知るための、９つの標語
+  - さらに詳しく理解するための「みんなで叶えるためのサイバーセキュリティパンフレット」
 
-## Learn More
+[標語(リンク先ページ中段)](https://www.nisc.go.jp/security-site/month/lovelive.html)
 
-To learn more about Next.js, take a look at the following resources:
+[みんなで叶えるためのサイバーセキュリティパンフレット(リンク先ページ中段のリンクから)](https://www.nisc.go.jp/security-site/month/lovelive.html)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 標語 (みんなで叶えるために、気を付けてほしいこと)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+自分用要約メモ
 
-## Deploy on Vercel
+1. パスワードは長くて複雑にしよう
+   - 攻撃者から類推し難くする => 文字数長く、文字組み合わせ
+   - サービス間で使い回さない
+1. 二要素認証を導入しよう
+   - パスワード以外の要素を組み合わせて、攻撃し難くする
+1. ウイルス対策ソフトを導入して、常に最新に（アップデート）しておこう
+   - ウイルス対策ソフト
+   - アプリ・ソフトはアップデート
+1. ファイルやリンクはすぐには開かない
+   - 悪いファイル・サイトかもしれない
+   - まずは警戒
+1. フィッシングサイトに注意しよう
+   - 偽物サイト
+   - 不審なメールからではなく、自分で正しいサイトにアクセスする
+   - ドメイン名で確認
+   - 難しければ、検索結果から
+1. 個人情報をむやみに発信しない
+   - 良い人にも、悪い人にも見られる
+   - 他の情報と組み合わせて個人情報になる
+   - 他の人の情報を発信してしまうかもしれない
+1. 情報の真偽はきちんと確認しよう
+   - 拡散されている情報が正しいとは限らない
+   - 反射的に信じたり、拡散しない
+   - 公的機関の情報や、一次情報、複数の情報源を確認
+1. 相手を傷つけるような発信はしない
+   - 文字だけの世界では、気持ちが正確に伝わらないかもしれない
+   - 思いやり・責任のある発言を
+1. 「心の隙」を作らないようにしよう
+   - パスワードや設定をしっかりしても、「心のスキ」を狙われるかもしれない
+   - 不安・油断につけこんでくる
+   - 知っている人・業者になりすましてくる
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Study "LoveLive Cyber Security"
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- 勝手に標語をジャンル分け
+  - ツールのセキュリティホールを作らない
+    - `1. パスワードは長くて複雑にしよう`
+    - `2. 二要素認証を導入しよう`
+    - `3. ウイルス対策ソフトを導入して、常に最新に（アップデート）しておこう`
+  - 人間のセキュリティホールを作らない
+    - `4. ファイルやリンクはすぐには開かない`
+    - `5. フィッシングサイトに注意しよう`
+    - `6. 個人情報をむやみに発信しない`
+    - `9. 「心の隙」を作らないようにしよう`
+  - 被害の種を作らない、被害を広げない
+    - `7. 情報の真偽はきちんと確認しよう`
+    - `8. 相手を傷つけるような発信はしない`
+
+=> 3 部構成で復習・再確認出来るアプリ(ゲーム?)を作る
+
+### Refer to ハンドブック
+
+[NISC | 「インターネットの安全・安心ハンドブック」について](https://www.nisc.go.jp/security-site/handbook/index.html)
+
+- セキュリティホール(脆弱性)
+  - プロローグ, 第 1 章 1-1
+- ★ パスワード
+  - 第 1 章 1, 3
+  - 第 3 章 1
+- ★ 二要素認証
+  - 第 3 章 1-6, 1-7, 1-8, 1-10
+  - => 中間者攻撃 (第 3 章 1-10)
+- ★ ウイルス対策ソフト
+- ★ アップデート
+  - 第 1 章 1-3 (セキュリティホールを塞ぐ)
+- ★ ファイルやリンク
+  - 第 3 章 4-5 (あやしいメールとはなにか)
+- ★ フィッシングサイト
+  - 第 2 章 1-4
+  - => フィッシング詐欺
+  - => フィッシングメール
+- ★ 個人情報
+  - プロローグ, 第 1 章, 第 2 章,
+- ★ 心の隙
+
+## About "Review LoveLive Cyber Security"
+
+### Story
+
+[STORY.md](./STORY.md)
+
+### Note
+
+- [講座内で算出したパスワードの安全性](https://www.youtube.com/watch?v=SuwgnzFwizk)
+  - 桜内梨子が考えそうな...パスワード
+    - 08010919 => 2/1000 秒
+  - 松浦果南が考えそうな...パスワード
+    - SAZAE012 => 1 分
+  - 黒澤ルビィが考えそうな...パスワード
+    - Dia0101!ove => 400 年
+
+## Ref
+
+### Icons
+
+[汎用的な人のシルエットアイコン](https://icon-rainbow.com/%E6%B1%8E%E7%94%A8%E7%9A%84%E3%81%AA%E4%BA%BA%E3%81%AE%E3%82%B7%E3%83%AB%E3%82%A8%E3%83%83%E3%83%88%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3/)

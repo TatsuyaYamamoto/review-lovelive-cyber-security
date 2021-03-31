@@ -1,4 +1,5 @@
 import { Fragment, FC, useState, useEffect } from "react";
+import Link from "next/link";
 import { useDispatch } from "react-redux";
 
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
@@ -9,6 +10,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import PlaylistPlayIcon from "@material-ui/icons/PlaylistPlay";
+import HomeIcon from "@material-ui/icons/Home";
 
 import { appLinks, externalLinks } from "@/resources/links";
 import chapterStepperSlice from "@/redux/slices/chapterStepper";
@@ -54,7 +56,15 @@ const Menu: FC<MenuProps> = (props) => {
       onClose={onClose}
       onOpen={onOpen}
     >
-      <List subheader={<ListSubheader>アプリ操作</ListSubheader>}>
+      <List>
+        <Link href={`/`}>
+          <ListItem button>
+            <ListItemIcon>
+              <HomeIcon />
+            </ListItemIcon>
+            <ListItemText primary={"トップに戻る"} />
+          </ListItem>
+        </Link>
         <ListItem button onClick={onClickChapterSelect}>
           <ListItemIcon>
             <PlaylistPlayIcon />
@@ -69,7 +79,7 @@ const Menu: FC<MenuProps> = (props) => {
         </ListItem>
       </List>
       <Divider />
-      <List subheader={<ListSubheader>外部リンク</ListSubheader>}>
+      <List>
         {externalLinks.map(({ label, url, Icon }, index) => (
           <ListItemLink key={index} href={url} target="_blank" rel="noopener">
             <ListItemIcon>
@@ -80,7 +90,7 @@ const Menu: FC<MenuProps> = (props) => {
         ))}
       </List>
       <Divider />
-      <List subheader={<ListSubheader>アプリについて</ListSubheader>}>
+      <List>
         {appLinks.map(({ label, url, Icon }, index) => (
           <ListItemLink key={index} href={url} target="_blank" rel="noopener">
             <ListItemIcon>

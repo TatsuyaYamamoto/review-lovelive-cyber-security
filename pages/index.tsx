@@ -19,11 +19,16 @@ export default function Home() {
         <div>
           サイバーセキュリティ月間で学んだことを一緒に復習しましょう！
           <br /> <br />
-          なお、このアプリはとあるラブライバーが自分でサイバーセキュリティを復習するために作成したものであり、ラブライブ公式・内閣サイバーセキュリティセンターとは一切関係がありません。
+          なおこのアプリは、とあるラブライバーが自分でサイバーセキュリティを復習するために作成したものであり、ラブライブ公式・内閣サイバーセキュリティセンターとは
+          <span className={styles.bold}>一切関係がありませ</span>ん。
           <br /> <br />
-          #サイバーセキュリティは全員参加
+          #サイバーセキュリティは全員参加 ！
         </div>
       ),
+      customClass: {
+        icon: styles.alertIcon,
+        confirmButton: styles.confirmButton,
+      },
       confirmButtonText: "復習開始！",
       showCancelButton: true,
       cancelButtonText: "始めません...",

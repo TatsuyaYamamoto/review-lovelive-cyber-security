@@ -17,3 +17,22 @@
   right: 50%;
   transform: translateX(50%);
 }
+
+.alertIcon {
+  transform: scale(0.5);
+  margin: 0 !important;
+}
+
+.confirmButton {
+  color: #000000 !important;
+}
+
+.shareButton {
+  color: #ffffff !important;
+  text-transform: none !important;
+  background-color: #1da1f2 !important;
+
+  svg {
+    fill: #ffffff !important;
+  }
+}

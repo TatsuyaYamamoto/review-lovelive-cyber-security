@@ -8,6 +8,7 @@ import "../src/styles/globals.css";
 import ProgressSpinner from "@/components/ProgressSpinner";
 import { renderClickEffect } from "@/helpers/clickEffect";
 import { store } from "@/redux/store";
+import Seo from "@/components/Seo";
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
   useEffect(() => {
@@ -16,14 +17,7 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
 
   return (
     <>
-      <Head>
-        <title>
-          復習！ラブライブ！サンシャイン!! x サイバーセキュリティ月間
-        </title>
-        <link rel="icon" href="/favicon.ico" />
-        {/* https://nextjs.org/docs/messages/no-document-viewport-meta */}
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-      </Head>
+      <Seo />
       <Provider store={store}>
         <Component {...pageProps} />
       </Provider>

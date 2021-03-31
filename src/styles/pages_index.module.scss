@@ -58,7 +58,7 @@
 
 .tieUpKeyword {
   position: absolute;
-  top: 30px;
+  top: 50px;
   width: 100%;
   background-color: rgba(67, 57, 124, 0.7);
   text-align: center;
@@ -84,7 +84,7 @@
 
 .startButtonWrapper {
   position: absolute;
-  bottom: 10px;
+  bottom: 90px;
 }
 .startButton {
   font-size: 20px;
@@ -92,4 +92,13 @@
   background-color: white;
   border: 5px solid rgb(209, 47, 125);
   border-radius: 4px;
+}
+
+.helpAction {
+  position: absolute !important;
+  background-color: #ffffff !important;
+  z-index: 100;
+  top: 10px;
+  right: 10px;
+  color: rgb(209, 47, 125) !important;
 }

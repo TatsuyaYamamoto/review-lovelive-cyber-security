@@ -1,12 +1,11 @@
 import { useRouter } from "next/router";
 
-import Button from "@material-ui/core/Button";
-
 import useAlert from "@/components/hooks/useAlert";
 import { officialTwitterHashtag } from "@/resources/urls";
 
 import styles from "@/styles/pages_index.module.scss";
-import AppLayout from "@/components/AppLayout";
+import Fab from "@material-ui/core/Fab";
+import HelpIcon from "@material-ui/icons/Help";
 
 export default function Home() {
   const router = useRouter();
@@ -22,10 +21,7 @@ export default function Home() {
           <br /> <br />
           なお、このアプリはとあるラブライバーが自分でサイバーセキュリティを復習するために作成したものであり、ラブライブ公式・内閣サイバーセキュリティセンターとは一切関係がありません。
           <br /> <br />
-          <a target="_blank" href={officialTwitterHashtag}>
-            #サイバーセキュリティは全員参加
-          </a>
-          ！
+          #サイバーセキュリティは全員参加
         </div>
       ),
       confirmButtonText: "復習開始！",
@@ -46,6 +42,10 @@ export default function Home() {
   return (
     <div className={styles.root}>
       <div className={styles.inner}>
+        <Fab className={styles.helpAction} onClick={onClickStartButton}>
+          <HelpIcon />
+        </Fab>
+
         <div className={styles.tieUpKeyword}>
           <span className={styles.tieUpKeywordInner}>
             <span className={styles.inlineBlock}>みんなで叶える</span>

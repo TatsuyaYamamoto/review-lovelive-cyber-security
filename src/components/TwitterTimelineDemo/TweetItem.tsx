@@ -30,7 +30,10 @@ const TweetItem: FC<TweetItemProps> = (props) => {
           <span className={styles.displayName}>{displayName}</span>
           <span className={styles.screenName}>{screenName}</span>
         </div>
-        <div className={styles.content}>{text}</div>
+        <div
+          className={styles.content}
+          dangerouslySetInnerHTML={{ __html: text }}
+        />
         <div className={styles.footer}>
           <div>
             <IconButton>

@@ -1,5 +1,7 @@
-import Head from "next/head";
 import { FC } from "react";
+import Head from "next/head";
+
+import { APP_URL } from "@/helpers/constants";
 
 export interface SeoProps {
   title?: string;
@@ -11,8 +13,8 @@ export interface SeoProps {
 const Seo: FC<SeoProps> = (props) => {
   const {
     title = `復習！サイバーセキュリティ月間`,
-    url = `http://review-lovelive-cyber-security.web.app`,
-    ogpImageUrl = `http://review-lovelive-cyber-security.web.app/images/ogp.png`,
+    url = APP_URL,
+    ogpImageUrl = `${APP_URL}/images/ogp.png`,
     description = `2021年のサイバーセキュリティ月間に学習したことを復習する四月馬鹿アプリ`,
   } = props;
   return (

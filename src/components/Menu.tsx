@@ -7,10 +7,16 @@ import Divider from "@material-ui/core/Divider";
 import ListItem, { ListItemProps } from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListSubheader from "@material-ui/core/ListSubheader";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import PlaylistPlayIcon from "@material-ui/icons/PlaylistPlay";
 
-import { appLinks, externalLinks, refsList } from "@/resources/links";
+import { appLinks, externalLinks } from "@/resources/links";
 import chapterStepperSlice from "@/redux/slices/chapterStepper";
-import { getCurrentChapterStepperIndex } from "@/helpers/utiles";
+import {
+  getCurrentChapterStepperIndex,
+  openTweetIntent,
+} from "@/helpers/utiles";
+import TwitterIconSvg from "@/assets/svg/TwitterIcon.svg";
 
 // https://material-ui.com/ja/components/lists/
 function ListItemLink(props: any) {
@@ -37,6 +43,10 @@ const Menu: FC<MenuProps> = (props) => {
     );
   };
 
+  const onClickTwitterShare = () => {
+    openTweetIntent();
+  };
+
   return (
     <SwipeableDrawer
       anchor="bottom"
@@ -46,21 +56,36 @@ const Menu: FC<MenuProps> = (props) => {
     >
       <List subheader={<ListSubheader>アプリ操作</ListSubheader>}>
         <ListItem button onClick={onClickChapterSelect}>
+          <ListItemIcon>
+            <PlaylistPlayIcon />
+          </ListItemIcon>
           <ListItemText primary="チャプター選択" />
+        </ListItem>
+        <ListItem button onClick={onClickTwitterShare}>
+          <ListItemIcon>
+            <TwitterIconSvg />
+          </ListItemIcon>
+          <ListItemText primary="Twitterシェア" />
         </ListItem>
       </List>
       <Divider />
       <List subheader={<ListSubheader>外部リンク</ListSubheader>}>
-        {externalLinks.map(({ label, url }, index) => (
+        {externalLinks.map(({ label, url, Icon }, index) => (
           <ListItemLink key={index} href={url} target="_blank" rel="noopener">
+            <ListItemIcon>
+              <Icon />
+            </ListItemIcon>
             <ListItemText primary={label} />
           </ListItemLink>
         ))}
       </List>
       <Divider />
       <List subheader={<ListSubheader>アプリについて</ListSubheader>}>
-        {appLinks.map(({ label, url }, index) => (
+        {appLinks.map(({ label, url, Icon }, index) => (
           <ListItemLink key={index} href={url} target="_blank" rel="noopener">
+            <ListItemIcon>
+              <Icon />
+            </ListItemIcon>
             <ListItemText primary={label} />
           </ListItemLink>
         ))}

@@ -1,7 +1,10 @@
+export type Action = "click";
+export type Category = "footnote";
+
 const useGa = () => {
   const event = (params: {
-    action: string;
-    category: string;
+    action: Action;
+    category: Category;
     label?: string;
     value?: string;
   }) => {

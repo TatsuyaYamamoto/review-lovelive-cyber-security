@@ -6,13 +6,14 @@ import CharacterRenderer from "@/components/CharacterRenderer";
 import AppLayout from "@/components/AppLayout";
 import LinesTextbox from "@/components/LinesTextbox";
 
-import { section2 as script } from "@/resources/script/intro";
+import { section1 as script } from "@/resources/script/intro";
 
 import styles from "@/styles/chapter-1.module.scss";
 import useScript from "@/components/hooks/useScript";
 
-const IntroSection2: NextPage = () => {
+const IntroSection1: NextPage = () => {
   const router = useRouter();
+
   const {
     characterRendererSource,
     linesSource,
@@ -26,7 +27,7 @@ const IntroSection2: NextPage = () => {
 
   useEffect(() => {
     if (isFinished) {
-      router.push(`/intro/section-3`);
+      router.push(`/prorogue/section-2`);
     }
   }, [isFinished]);
 
@@ -40,4 +41,4 @@ const IntroSection2: NextPage = () => {
   );
 };
 
-export default IntroSection2;
+export default IntroSection1;

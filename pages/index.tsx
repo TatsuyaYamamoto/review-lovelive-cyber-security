@@ -35,7 +35,7 @@ export default function Home() {
     });
 
     if (isConfirmed) {
-      await router.push(`/intro/section-1`);
+      await router.push(`/prorogue/section-1`);
     }
   };
 

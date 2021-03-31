@@ -1,19 +1,18 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { NextPage } from "next";
+import { useRouter } from "next/router";
 
 import CharacterRenderer from "@/components/CharacterRenderer";
 import AppLayout from "@/components/AppLayout";
 import LinesTextbox from "@/components/LinesTextbox";
-import useScript from "@/components/hooks/useScript";
 
-import { section3 as script } from "@/resources/script/intro";
+import { section2 as script } from "@/resources/script/intro";
 
 import styles from "@/styles/chapter-1.module.scss";
-import chapterStepperSlice, { moveStep } from "@/redux/slices/chapterStepper";
-import { useAppDispatch } from "@/redux/hooks";
+import useScript from "@/components/hooks/useScript";
 
-const IntroSection3: NextPage = () => {
-  const dispatch = useAppDispatch();
+const IntroSection2: NextPage = () => {
+  const router = useRouter();
   const {
     characterRendererSource,
     linesSource,
@@ -27,7 +26,7 @@ const IntroSection3: NextPage = () => {
 
   useEffect(() => {
     if (isFinished) {
-      dispatch(moveStep(0, 1));
+      router.push(`/prorogue/section-3`);
     }
   }, [isFinished]);
 
@@ -41,4 +40,4 @@ const IntroSection3: NextPage = () => {
   );
 };
 
-export default IntroSection3;
+export default IntroSection2;

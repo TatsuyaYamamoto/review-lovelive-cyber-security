@@ -1,14 +1,14 @@
 import { FC, useEffect } from "react";
 import { Provider } from "react-redux";
-import Head from "next/head";
 import { AppProps } from "next/app";
 
-import "../src/styles/globals.css";
-
-import ProgressSpinner from "@/components/ProgressSpinner";
 import { renderClickEffect } from "@/helpers/clickEffect";
 import { store } from "@/redux/store";
 import Seo from "@/components/Seo";
+import ProgressSpinner from "@/components/ProgressSpinner";
+
+import "../src/styles/globals.css";
+import styles from "@/styles/pages_app.module.scss";
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
   useEffect(() => {
@@ -21,7 +21,11 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
       <Provider store={store}>
         <Component {...pageProps} />
       </Provider>
-      <ProgressSpinner />
+      <div className={styles.spinnerWrapper}>
+        <div className={styles.spinnerInner}>
+          <ProgressSpinner />
+        </div>
+      </div>
     </>
   );
 };

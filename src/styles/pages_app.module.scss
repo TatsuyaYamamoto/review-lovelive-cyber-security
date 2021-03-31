@@ -1,0 +1,12 @@
+.spinnerWrapper {
+  position: absolute;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.spinnerInner {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+}

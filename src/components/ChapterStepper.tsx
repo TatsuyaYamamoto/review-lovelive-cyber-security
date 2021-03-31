@@ -44,7 +44,7 @@ const ChapterStepper: FC<ChapterStepperProps> = (props) => {
   const router = useRouter();
   const dispatch = useDispatch();
   const chapterList = [
-    chapters["prorogue"],
+    chapters["prologue"],
     chapters["1"],
     chapters["2"],
     chapters["3"],

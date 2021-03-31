@@ -1,8 +1,8 @@
 type ChapterNumber = 1 | 2 | 3;
 
 export const chapters = {
-  prorogue: {
-    initPath: "/prorogue/section-1",
+  prologue: {
+    initPath: "/prologue/section-1",
     title: "プロローグ",
   },
   1: {
@@ -18,7 +18,7 @@ export const chapters = {
     title: "被害の種を作らない、被害を広げない",
   },
   epilogue: {
-    initPath: "/epilogue/section-1",
+    initPath: "/epilogue",
     title: "エピローグ",
   },
 };

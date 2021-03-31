@@ -27,7 +27,7 @@ const IntroSection1: NextPage = () => {
 
   useEffect(() => {
     if (isFinished) {
-      router.push(`/prorogue/section-2`);
+      router.push(`/prologue/section-2`);
     }
   }, [isFinished]);
 

@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
@@ -13,9 +12,14 @@ import StepButton from "@material-ui/core/StepButton";
 import StepLabel from "@material-ui/core/StepLabel";
 import StepContent from "@material-ui/core/StepContent";
 import { StepIconProps } from "@material-ui/core/StepIcon";
+import CloseIcon from "@material-ui/icons/Close";
+import IconButton from "@material-ui/core/IconButton";
 
 import { chapters } from "@/resources/chapters";
+import { useAppSelector } from "@/redux/hooks";
 import chapterStepperSlice from "@/redux/slices/chapterStepper";
+
+import styles from "./ChapterStepper.module.scss";
 
 const StepIcon: FC<StepIconProps> = (props) => {
   const { icon } = props;
@@ -32,15 +36,9 @@ const StepIcon: FC<StepIconProps> = (props) => {
   return <div>{label}</div>;
 };
 
-export interface ChapterStepperProps {
-  open: boolean;
-  stepIndex: number;
-  onStepSelected: (stepIndex: number) => void;
-}
+export interface ChapterStepperProps {}
 
 const ChapterStepper: FC<ChapterStepperProps> = (props) => {
-  const { open, stepIndex, onStepSelected } = props;
-
   const router = useRouter();
   const dispatch = useDispatch();
   const chapterList = [
@@ -51,21 +49,36 @@ const ChapterStepper: FC<ChapterStepperProps> = (props) => {
     chapters["epilogue"],
   ];
 
+  const { open, index, canClose } = useAppSelector((s) => s.chapterStepper);
+
   const onStartChapter = (initPath: string) => () => {
     dispatch(chapterStepperSlice.actions.closeChapterStepper());
     router.push(initPath);
   };
 
   const onStepClicked = (stepIndex: number) => () => {
-    onStepSelected(stepIndex);
+    dispatch(
+      chapterStepperSlice.actions.changeStepperIndex({ index: stepIndex })
+    );
+  };
+
+  const handleClose = () => {
+    dispatch(chapterStepperSlice.actions.closeChapterStepper());
   };
 
   return (
     <Dialog open={open}>
-      <DialogTitle>{"チャプター選択"}</DialogTitle>
+      <DialogTitle>
+        {"チャプター選択"}
+        {canClose && (
+          <IconButton className={styles.closeButton} onClick={handleClose}>
+            <CloseIcon />
+          </IconButton>
+        )}
+      </DialogTitle>
       <DialogContent>
         <Stepper
-          activeStep={stepIndex}
+          activeStep={index}
           orientation="vertical"
           nonLinear={true}
           style={{ padding: 0 }}

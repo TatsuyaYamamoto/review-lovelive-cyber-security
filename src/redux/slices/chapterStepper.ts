@@ -3,30 +3,41 @@ import { wait } from "@/helpers/utiles";
 
 export const moveStep = (
   from: number,
-  to: number
+  to: number,
+  canClose = false
 ): ThunkAction<any, any, any, any> => async (dispatch) => {
-  dispatch(displaySlice.actions.openChapterStepper({ index: from }));
+  dispatch(displaySlice.actions.openChapterStepper({ index: from, canClose }));
   await wait(0.5);
-  dispatch(displaySlice.actions.openChapterStepper({ index: to }));
+  dispatch(displaySlice.actions.openChapterStepper({ index: to, canClose }));
 };
 
 const initialState = {
-  openChapterStepper: false,
-  chapterStepperIndex: 0,
+  open: false,
+  canClose: false,
+  index: 0,
 };
 
 export const displaySlice = createSlice({
   name: "display",
   initialState,
   reducers: {
-    openChapterStepper: (state, action: { payload: { index: number } }) => {
-      state.openChapterStepper = true;
-      state.chapterStepperIndex = action.payload.index;
+    openChapterStepper: (
+      state,
+      action: { payload: { index: number; canClose: boolean } }
+    ) => {
+      state.open = true;
+      state.index = action.payload.index;
+      state.canClose = action.payload.canClose;
+    },
+
+    changeStepperIndex: (state, action: { payload: { index: number } }) => {
+      state.index = action.payload.index;
     },
 
     closeChapterStepper: (state) => {
-      state.openChapterStepper = false;
-      state.chapterStepperIndex = 0;
+      state.open = false;
+      state.index = 0;
+      state.canClose = true;
     },
   },
 });

@@ -32,6 +32,7 @@ const Menu: FC<MenuProps> = (props) => {
     dispatch(
       chapterStepperSlice.actions.openChapterStepper({
         index: currentStepperIndex,
+        canClose: true,
       })
     );
   };

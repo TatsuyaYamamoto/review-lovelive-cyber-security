@@ -1,4 +1,4 @@
-import { FC, MouseEvent, HTMLAttributes, useState, useEffect } from "react";
+import { FC, MouseEvent, HTMLAttributes, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "@/redux/hooks";
 
@@ -9,7 +9,6 @@ import MenuButton from "./MenuButton";
 import ChapterStepper from "@/components/ChapterStepper";
 import FootnoteWindow from "@/components/FootnoteWindow";
 import footnoteSlice from "@/redux/slices/footnote";
-import chapterStepperSlice from "@/redux/slices/chapterStepper";
 
 export interface AppLayoutProps extends HTMLAttributes<HTMLDivElement> {
   hideMenu?: boolean;
@@ -19,8 +18,6 @@ const AppLayout: FC<AppLayoutProps> = (props) => {
   const { hideMenu = false, children, ...others } = props;
 
   const dispatch = useDispatch();
-  const { openChapterStepper } = useAppSelector((s) => s.chapterStepper);
-  const { chapterStepperIndex } = useAppSelector((s) => s.chapterStepper);
   const { renderingFootnoteId } = useAppSelector((s) => s.footnote);
   const [isOpenMenu, handleOpenMenu] = useState(false);
 
@@ -39,10 +36,6 @@ const AppLayout: FC<AppLayoutProps> = (props) => {
     dispatch(footnoteSlice.actions.closeFootnoteWindow());
   };
 
-  const onStepSelected = (index: number) => {
-    dispatch(chapterStepperSlice.actions.openChapterStepper({ index }));
-  };
-
   return (
     <>
       <div className={styles.root} {...others}>
@@ -56,11 +49,7 @@ const AppLayout: FC<AppLayoutProps> = (props) => {
         </div>
       </div>
       <Menu open={isOpenMenu} onOpen={onMenuOpen} onClose={onMenuClose} />
-      <ChapterStepper
-        open={openChapterStepper}
-        stepIndex={chapterStepperIndex}
-        onStepSelected={onStepSelected}
-      />
+      <ChapterStepper />
       <FootnoteWindow
         renderingFootnoteId={renderingFootnoteId}
         handleClose={handleFootnoteWindowClose}

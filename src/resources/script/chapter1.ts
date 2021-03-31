@@ -10,7 +10,7 @@ export const section1: ScriptType[][] = [
     {
       type: "lines",
       speaker: "ruby",
-      text: "ツール...使っている道具やサービスのセキュリティホールかぁ...",
+      text: "ツール...使っている道具やサービスのセキュリティホールかぁ...。",
     },
   ],
   [
@@ -22,7 +22,7 @@ export const section1: ScriptType[][] = [
     {
       type: "lines",
       speaker: "yoshiko",
-      text: "やっぱりパスワードが大定番の基本ずら",
+      text: "やっぱりパスワードが大定番の基本ずら。",
     },
   ],
   [
@@ -34,7 +34,7 @@ export const section1: ScriptType[][] = [
     {
       type: "lines",
       speaker: "yoshiko",
-      text: "パスワードの作り方なら千歌に教わったから完璧よ",
+      text: "パスワードの作り方なら千歌に教わったから完璧よ。",
     },
   ],
   [
@@ -45,7 +45,7 @@ export const section1: ScriptType[][] = [
     {
       type: "lines",
       speaker: "hanamaru",
-      text: "えぇ...まる、いきなり御役御免？！",
+      text: "えぇ...まる、いきなり御役御免！？",
     },
   ],
   [
@@ -87,8 +87,7 @@ export const section1: ScriptType[][] = [
     {
       type: "lines",
       speaker: "hanamaru",
-      text:
-        "ちなみに、この検証ツールはお手持ちの端末で計算するから、保存や、サーバーに送信されてなくて安心ずら！",
+      text: `<span>ちなみに、<a href="#" onClick={clickLink("password_checker")}>この検証ツール</a>はお手持ちの端末で計算するから、保存や、サーバーに送信されてなくて安心ずら！</span>`,
     },
   ],
   [
@@ -125,7 +124,7 @@ export const section2: ScriptType[][] = [
     {
       type: "lines",
       speaker: "hanamaru",
-      text: "ここのボタンを押せば、計算結果が表示されるずら",
+      text: "ここのボタンを押せば、計算結果が表示されるずら。",
     },
   ],
   [
@@ -147,8 +146,7 @@ export const section2: ScriptType[][] = [
     {
       type: "lines",
       speaker: "monologue",
-      // TODO
-      text: `<span><a href='#' onClick={clickLink("dia_love_password")}>400年超え</a>の<a href="#" onClick={clickLink("secure_password")}>複雑なパスワード</a>を目指しましょう！</span>`,
+      text: `<span><a href='#' onClick={clickLink("dia_love_password")}>400年超え</a>の複雑なパスワードを目指しましょう！</span>`,
     },
     {
       type: "user_action",

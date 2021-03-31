@@ -97,8 +97,7 @@ export const section1: ScriptType[][] = [
     {
       type: "lines",
       speaker: "hanamaru",
-      text:
-        "えへへ！「インターネットの安全・安心ハンドブック」っていう本なんだ！",
+      text: `<span>えへへ！「<a href='#' onClick={clickLink("handbook")}>インターネットの安全・安心ハンドブック</a>」っていう本なんだ！</span>`,
     },
   ],
   [
@@ -146,7 +145,7 @@ export const section1: ScriptType[][] = [
       type: "lines",
       speaker: "yoshiko",
       text:
-        "ふっ...。まぁこのヨハネに言わせてもらえば、魔界の力に遠く及ばない科学なんてものに...",
+        "ふっ...。まぁこのヨハネに言わせてもらえば、魔界の力に遠く及ばない科学なんてものに...。",
     },
   ],
   [
@@ -254,7 +253,14 @@ export const section2: ScriptType[][] = [
     {
       type: "lines",
       speaker: "hanamaru",
-      text: `より効率的に利益を上げるためには、より攻撃の手間がかからないカモをみつけて攻撃するのが一番！だから、まる達は攻撃者にとって手間がかかるようにすることが大事！`,
+      text: `より効率的に利益を上げるためには、より攻撃の手間がかからないカモをみつけて攻撃するのが一番！`,
+    },
+  ],
+  [
+    {
+      type: "lines",
+      speaker: "hanamaru",
+      text: `だから、まる達は攻撃者にとって手間がかかるようにすることが大事！`,
     },
   ],
   [
@@ -301,7 +307,7 @@ export const section2: ScriptType[][] = [
       type: "lines",
       speaker: "hanamaru",
       text:
-        "セキュリティホールを作らないようにして、攻撃しにくくするってこと！",
+        "「セキュリティホールを作らないように対策して、攻撃者の手間を増やそう！」ってこと！",
     },
   ],
   [

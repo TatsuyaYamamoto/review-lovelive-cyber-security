@@ -2,7 +2,7 @@ export const timelineData = [
   {
     imgUrl: "/images/sns_icon_chika.png",
     displayName: "ちか",
-    screenName: "@kan2mikan",
+    screenName: "@shitakemikan",
     text: `<p>今日もみかん！がおいしいなぁっ
 
 <a href="#">#みかん</a>
@@ -31,7 +31,7 @@ export const timelineData = [
   {
     imgUrl: "/images/sns_icon_chika.png",
     displayName: "ちか",
-    screenName: "@kan2mikan",
+    screenName: "@shitakemikan",
     text: `<p>お客さんに歯ブラシ渡すの忘れてた💦いってきま～す！</p>`,
     rt: 0,
     fav: 0,
@@ -55,7 +55,7 @@ export const timelineData = [
   {
     imgUrl: "/images/sns_icon_riko.png",
     displayName: "りこぴー",
-    screenName: "@sakusaku",
+    screenName: "@donkabe_sakura",
     text: `<p>今日はお散歩で木負まで来ちゃった💦帰るのが大変かも…</p>`,
     rt: 0,
     fav: 0,
@@ -63,7 +63,7 @@ export const timelineData = [
   {
     imgUrl: "/images/sns_icon_kanan.png",
     displayName: "まつうら",
-    screenName: "@Kana_kaeru",
+    screenName: "@kaeru_ka_nandaka",
     text: `<p>夜ごはんにもわかめが出るといいな～</p>`,
     rt: 0,
     fav: 0,
@@ -72,14 +72,14 @@ export const timelineData = [
     imgUrl: "/images/sns_icon_you.png",
     displayName: "YOU",
     screenName: "@yo-so-ro-04",
-    text: `<p><a href='#'>@kan2mikan</a> トランプとか、UNOとかが定番だよね！キャンプ楽しみだね！</p>`,
+    text: `<p><a href='#'>@shitakemikan</a> トランプとか、UNOとかが定番だよね！キャンプ楽しみだね！</p>`,
     rt: 0,
     fav: 0,
   },
   {
     imgUrl: "/images/sns_icon_chika.png",
     displayName: "ちか",
-    screenName: "@kan2mikan",
+    screenName: "@shitakemikan",
     text: `<p>キャンプの準備頼まれてたんだった！何持っていこうかな～
 みんなで遊べるものがいいよね！</p>`,
     rt: 0,
@@ -88,7 +88,7 @@ export const timelineData = [
   {
     imgUrl: "/images/sns_icon_kanan.png",
     displayName: "まつうら",
-    screenName: "@Kana_kaeru",
+    screenName: "@kaeru_ka_nandaka",
     text: `<p>今朝はわかめ入りみそ汁だった♪
 
 <a href="#">#今日のわかめ</a></p>`,

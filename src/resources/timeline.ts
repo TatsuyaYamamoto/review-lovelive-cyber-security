@@ -29,18 +29,6 @@ export const timelineData = [
     fav: 0,
   },
   {
-    imgUrl: "/images/sns_icon_t28.jpg",
-    displayName: "T28 is タツヤ🍊",
-    screenName: "@T28_tatsuya",
-    text: `<p>おぎゃぎゃぎゃぎゃぁぁあああ！！！！👶🍊👶🍊👶🍊👶🍊
-（みかんから種が4つ出ました）
-
-</p>
-<a href="#">#東京産西浦寿太郎みかん</a>`,
-    rt: 0,
-    fav: 0,
-  },
-  {
     imgUrl: "/images/sns_icon_chika.png",
     displayName: "ちか",
     screenName: "@kan2mikan",
@@ -50,7 +38,7 @@ export const timelineData = [
   },
   {
     imgUrl: "/images/sns_icon_yoshiko.png",
-    displayName: "堕天使👿ヨハネ　oo_yohane_oo",
+    displayName: "堕天使😈ヨハネ",
     screenName: "@oo_yohane_oo",
     text: `<p>今日はチートデイってことで…</p>`,
     rt: 0,
@@ -58,7 +46,7 @@ export const timelineData = [
   },
   {
     imgUrl: "/images/sns_icon_yoshiko.png",
-    displayName: "堕天使👿ヨハネ",
+    displayName: "堕天使😈ヨハネ",
     screenName: "@oo_yohane_oo",
     text: `<p>駅前でおやつ買っちゃった…また太っちゃうよ～～💦</p>`,
     rt: 0,
@@ -104,6 +92,18 @@ export const timelineData = [
     displayName: "まつうら",
     screenName: "@Kana_kaeru",
     text: `<p>夜ごはんにもわかめが出るといいな～</p>`,
+    rt: 0,
+    fav: 0,
+  },
+  {
+    imgUrl: "/images/sns_icon_t28.jpg",
+    displayName: "T28 is タツヤ🍊",
+    screenName: "@T28_tatsuya",
+    text: `<p>おぎゃぎゃぎゃぎゃぁぁあああ！！！！👶🍊👶🍊👶🍊👶🍊
+（みかんから種が4つ出ました）
+
+</p>
+<a href="#">#東京産西浦寿太郎みかん</a>`,
     rt: 0,
     fav: 0,
   },

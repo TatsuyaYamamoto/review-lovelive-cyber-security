@@ -64,9 +64,7 @@ export const timelineData = [
     imgUrl: "/images/sns_icon_kanan.png",
     displayName: "まつうら",
     screenName: "@Kana_kaeru",
-    text: `<p>今朝はわかめ入りみそ汁だった♪
-
-<a href="#">#今日のわかめ</a></p>`,
+    text: `<p>夜ごはんにもわかめが出るといいな～</p>`,
     rt: 0,
     fav: 0,
   },
@@ -91,7 +89,9 @@ export const timelineData = [
     imgUrl: "/images/sns_icon_kanan.png",
     displayName: "まつうら",
     screenName: "@Kana_kaeru",
-    text: `<p>夜ごはんにもわかめが出るといいな～</p>`,
+    text: `<p>今朝はわかめ入りみそ汁だった♪
+
+<a href="#">#今日のわかめ</a></p>`,
     rt: 0,
     fav: 0,
   },

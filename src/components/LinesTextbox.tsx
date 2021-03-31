@@ -8,6 +8,7 @@ import { Speaker, Speakers } from "@/resources/script/Script";
 
 import styles from "./LinesTextbox.module.scss";
 import { FootnoteId } from "@/resources/footnote";
+import useGa from "@/components/hooks/useGa";
 
 export type LinesSource =
   | {
@@ -23,25 +24,35 @@ export interface LinesTextboxProps extends HTMLAttributes<HTMLDivElement> {
 const LinesTextbox: FC<LinesTextboxProps> = (props) => {
   const { source, className } = props;
   const dispatch = useDispatch();
+  const { event } = useGa();
 
   if (source.speaker === "blank") {
     return <div className={clsx(styles.textbox, className)} />;
-  }
-
-  if (source.speaker === "monologue") {
-    return (
-      <div className={clsx(styles.textbox, className)}>
-        <div className={styles.speakerLines}>{source.text}</div>
-      </div>
-    );
   }
 
   const clickLink = (footnoteId: FootnoteId) => (e: MouseEvent) => {
     e.stopPropagation();
     e.preventDefault();
 
+    event({ action: "click", category: "footnote", label: footnoteId });
+
     dispatch(footnoteSlice.actions.openFootnoteWindow(footnoteId));
   };
+
+  if (source.speaker === "monologue") {
+    return (
+      <div className={clsx(styles.textbox, className)}>
+        <div className={styles.speakerLines}>
+          <JsxParser
+            // https://github.com/TroyAlford/react-jsx-parser#basic-usage---injecting-jsx-as-a-string
+            blacklistedAttrs={[]}
+            bindings={{ clickLink }}
+            jsx={source.text}
+          />
+        </div>
+      </div>
+    );
+  }
 
   const { speaker, text } = source;
   const { icon, name } = Speakers[speaker];

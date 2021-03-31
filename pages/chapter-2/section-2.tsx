@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { NextPage } from "next";
 
 import AppLayout from "@/components/AppLayout";
@@ -5,14 +7,13 @@ import LinesTextbox from "@/components/LinesTextbox";
 import CharacterRenderer from "@/components/CharacterRenderer";
 import useScript from "@/components/hooks/useScript";
 
-import { section1 as script } from "@/resources/script/chapter2";
+import { section2 as script } from "@/resources/script/chapter2";
+import { moveStep } from "@/redux/slices/chapterStepper";
 
 import styles from "@/styles/chapter-1.module.scss";
-import { useEffect } from "react";
-import { useRouter } from "next/router";
 
 const Chapter2Section1: NextPage = () => {
-  const router = useRouter();
+  const dispatch = useDispatch();
   const {
     linesSource,
     characterRendererSource,
@@ -26,7 +27,7 @@ const Chapter2Section1: NextPage = () => {
 
   useEffect(() => {
     if (isFinished) {
-      router.push(`/chapter-2/section-2`);
+      dispatch(moveStep(2, 3));
     }
   }, [isFinished]);
 

@@ -1,5 +1,5 @@
-export type Action = "click";
-export type Category = "footnote";
+export type Action = "click" | "user_action";
+export type Category = "footnote" | "password_checke";
 
 const useGa = () => {
   const event = (params: {

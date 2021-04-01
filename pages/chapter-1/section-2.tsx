@@ -12,9 +12,11 @@ import PasswordCheckForm from "@/components/PaswordCheckForm";
 import { HsimpResult } from "@/helpers/howSecureIsMyPassword";
 
 import styles from "@/styles/chapter-1.module.scss";
+import useGa from "@/components/hooks/useGa";
 
 const Chapter1Section2: NextPage = () => {
   const router = useRouter();
+  const ga = useGa();
   const {
     linesSource,
     isFinished,
@@ -33,6 +35,13 @@ const Chapter1Section2: NextPage = () => {
 
   const onPasswordCheckResult = (result: HsimpResult) => {
     const { estimatedTime } = result;
+
+    ga.event({
+      action: "user_action",
+      category: "password_checke",
+      value: estimatedTime,
+    });
+
     if (!estimatedTime.endsWith("年")) {
       return;
     }

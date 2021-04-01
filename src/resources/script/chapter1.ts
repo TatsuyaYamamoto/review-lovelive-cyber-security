@@ -146,7 +146,7 @@ export const section2: ScriptType[][] = [
     {
       type: "lines",
       speaker: "monologue",
-      text: `<span><a href='#' onClick={clickLink("dia_love_password")}>400年超え</a>の複雑なパスワードを目指しましょう！</span>`,
+      text: `<span><a href='#' onClick={clickLink("dia_love_password")}>400年超え</a>の<a href="#" onClick={clickLink("secure_password")}>複雑なパスワード</a>を目指しましょう！</span>`,
     },
     {
       type: "user_action",

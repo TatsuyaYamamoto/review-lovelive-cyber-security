@@ -1,28 +1,43 @@
-import { Fragment, FC, useState, useEffect } from "react";
+import { FC, useState, useEffect } from "react";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
 
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
-import ListItem, { ListItemProps } from "@material-ui/core/ListItem";
+import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-import ListSubheader from "@material-ui/core/ListSubheader";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import PlaylistPlayIcon from "@material-ui/icons/PlaylistPlay";
 import HomeIcon from "@material-ui/icons/Home";
+import AppIcon from "@material-ui/icons/Apps";
+import SecurityIcon from "@material-ui/icons/Security";
 
-import { appLinks, externalLinks } from "@/resources/links";
 import chapterStepperSlice from "@/redux/slices/chapterStepper";
 import {
   getCurrentChapterStepperIndex,
   openTweetIntent,
 } from "@/helpers/utiles";
 import TwitterIconSvg from "@/assets/svg/TwitterIcon.svg";
+import GitHubIcon from "@/assets/svg/GitHubIcon.svg";
+import AboutAppDialog from "@/components/AboutAppDialog";
 
 // https://material-ui.com/ja/components/lists/
-function ListItemLink(props: any) {
-  return <ListItem button component="a" {...props} />;
+function ListItemLink(props: { href: string; label: string; icon: any }) {
+  return (
+    <ListItem
+      button
+      component="a"
+      href={props.href}
+      target="_blank"
+      rel="noopener"
+    >
+      <ListItemIcon>
+        <props.icon />
+      </ListItemIcon>
+      <ListItemText primary={props.label} />
+    </ListItem>
+  );
 }
 
 export interface MenuProps {
@@ -34,6 +49,7 @@ export interface MenuProps {
 const Menu: FC<MenuProps> = (props) => {
   const { open, onClose, onOpen } = props;
   const dispatch = useDispatch();
+  const [isOpenAppAbout, handleOpenAppAbout] = useState(false);
 
   const onClickChapterSelect = () => {
     const currentStepperIndex = getCurrentChapterStepperIndex();
@@ -47,6 +63,14 @@ const Menu: FC<MenuProps> = (props) => {
 
   const onClickTwitterShare = () => {
     openTweetIntent();
+  };
+
+  const onClickAboutApp = () => {
+    handleOpenAppAbout(true);
+  };
+
+  const closeAboutAppDialog = () => {
+    handleOpenAppAbout(false);
   };
 
   return (
@@ -80,26 +104,29 @@ const Menu: FC<MenuProps> = (props) => {
       </List>
       <Divider />
       <List>
-        {externalLinks.map(({ label, url, Icon }, index) => (
-          <ListItemLink key={index} href={url} target="_blank" rel="noopener">
-            <ListItemIcon>
-              <Icon />
-            </ListItemIcon>
-            <ListItemText primary={label} />
-          </ListItemLink>
-        ))}
+        <ListItemLink
+          href={"https://www.nisc.go.jp/security-site/month/lovelive.html"}
+          label={"NISC | サイバーセキュリティ月間"}
+          icon={SecurityIcon}
+        />
       </List>
       <Divider />
       <List>
-        {appLinks.map(({ label, url, Icon }, index) => (
-          <ListItemLink key={index} href={url} target="_blank" rel="noopener">
-            <ListItemIcon>
-              <Icon />
-            </ListItemIcon>
-            <ListItemText primary={label} />
-          </ListItemLink>
-        ))}
+        <ListItem button onClick={onClickAboutApp}>
+          <ListItemIcon>
+            <AppIcon />
+          </ListItemIcon>
+          <ListItemText primary={"このアプリについて"} />
+        </ListItem>
+        <ListItemLink
+          href={
+            "https://github.com/TatsuyaYamamoto/review-lovelive-cyber-security"
+          }
+          label={"ソースコード"}
+          icon={GitHubIcon}
+        />
       </List>
+      <AboutAppDialog open={isOpenAppAbout} handleClose={closeAboutAppDialog} />
     </SwipeableDrawer>
   );
 };

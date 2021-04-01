@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 
 import useAlert from "@/components/hooks/useAlert";
-import { officialTwitterHashtag } from "@/resources/urls";
 
 import styles from "@/styles/pages_index.module.scss";
 import Fab from "@material-ui/core/Fab";
@@ -21,8 +20,16 @@ export default function Home() {
         <div>
           サイバーセキュリティ月間で学んだことを一緒に復習しましょう！
           <br /> <br />
-          なおこのアプリは、とあるラブライバーが自分でサイバーセキュリティを復習するために作成したものであり、ラブライブ公式・内閣サイバーセキュリティセンターとは
-          <span className={styles.bold}>一切関係がありませ</span>ん。
+          なおこのアプリは、
+          <a
+            href="https://twitter.com/T28_tatsuya"
+            target="_blank"
+            className={styles.link}
+          >
+            とあるラブライバー
+          </a>
+          が自分でサイバーセキュリティを復習するために作成したものであり、ラブライブ公式・内閣サイバーセキュリティセンターとは
+          <span className={styles.red}>一切関係がありません</span>。
           <br /> <br />
           #サイバーセキュリティは全員参加 ！
         </div>

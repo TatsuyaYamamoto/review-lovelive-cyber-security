@@ -103,6 +103,14 @@
   color: rgb(209, 47, 125) !important;
 }
 
+.shareAction {
+  position: absolute !important;
+  background-color: #ffffff !important;
+  top: 80px;
+  right: 10px;
+  z-index: 100;
+}
+
 .alertIcon {
   transform: scale(0.5);
   margin: 0 !important;

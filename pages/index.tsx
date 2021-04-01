@@ -6,6 +6,8 @@ import { officialTwitterHashtag } from "@/resources/urls";
 import styles from "@/styles/pages_index.module.scss";
 import Fab from "@material-ui/core/Fab";
 import HelpIcon from "@material-ui/icons/Help";
+import TwitterIconSvg from "@/assets/svg/TwitterIcon.svg";
+import { openTweetIntent } from "@/helpers/utiles";
 
 export default function Home() {
   const router = useRouter();
@@ -44,11 +46,18 @@ export default function Home() {
     startGame();
   };
 
+  const onClickTwitterShare = () => {
+    openTweetIntent();
+  };
+
   return (
     <div className={styles.root}>
       <div className={styles.inner}>
         <Fab className={styles.helpAction} onClick={onClickStartButton}>
           <HelpIcon />
+        </Fab>
+        <Fab className={styles.shareAction} onClick={onClickTwitterShare}>
+          <TwitterIconSvg />
         </Fab>
 
         <div className={styles.tieUpKeyword}>

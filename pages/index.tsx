@@ -8,13 +8,22 @@ import HelpIcon from "@material-ui/icons/Help";
 import TwitterIconSvg from "@/assets/svg/TwitterIcon.svg";
 import { openTweetIntent } from "@/helpers/utiles";
 
+const aprilFool2021 = new Date(2021, 4 - 1, 1, 0, 0, 0);
+const today = new Date();
+const diffMs = new Date(today.getTime() - aprilFool2021.getTime()).getTime();
+const diffDate = Math.floor(diffMs / (1000 * 60 * 60 * 24)) % 365;
+const title =
+  diffDate === 0
+    ? "今日はエイプリルフールです！"
+    : `${String(diffDate)}日前はエイプリルフールでした！`;
+
 export default function Home() {
   const router = useRouter();
   const alert = useAlert();
 
   const startGame = async () => {
     const { isConfirmed } = await alert.show({
-      title: "今日はエイプリルフールです！",
+      title,
       icon: "warning",
       html: (
         <div>

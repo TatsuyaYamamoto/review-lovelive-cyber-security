@@ -9,6 +9,7 @@
     "indexes": "firestore.indexes.json"
   },
   "functions": {
+    "source": "packages/api",
     "predeploy": "npm --prefix \"$RESOURCE_DIR\" run build"
   },
   "emulators": {

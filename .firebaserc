@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "review-lovelive-cyber-security"
+    "api": "api-app-t28-dev",
+    "review-lovelive-cyber-security": "review-lovelive-cyber-security"
   }
 }

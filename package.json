@@ -5,6 +5,15 @@
   "workspaces": [
     "packages/*"
   ],
-  "scripts": {},
-  "devDependencies": {}
+  "scripts": {
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,css,scss,json,md}": "prettier --write"
+  },
+  "devDependencies": {
+    "husky": "^6.0.0",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.2.1"
+  }
 }

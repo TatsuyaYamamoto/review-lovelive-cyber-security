@@ -1,9 +1,15 @@
+import moduleAlias from "module-alias";
+moduleAlias.addAlias("@", __dirname);
+
+/* eslint import/first:0 */
 import * as functions from "firebase-functions";
 
-// Start writing Firebase Functions
-// https://firebase.google.com/docs/functions/typescript
+import "@/firebaseApp";
+import createServer from "@/https";
 
-export const helloWorld = functions.https.onRequest((request, response) => {
-  functions.logger.info("Hello logs!", { structuredData: true });
-  response.send("Hello from Firebase!");
-});
+export const api = functions
+  .region("asia-northeast1")
+  .https.onRequest(async (...args) => {
+    const server = await createServer();
+    server(...args);
+  });
